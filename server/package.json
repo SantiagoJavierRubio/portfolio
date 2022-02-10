@@ -6,20 +6,25 @@
   "scripts": {
     "start": "node -r ts-node/register ./index.ts",
     "dev": "nodemon",
-    "build": "tsc --project ./",
+    "build": "tsc",
     "start:prod": "node dist/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "SJR",
   "license": "ISC",
   "dependencies": {
+    "connect-mongodb-session": "^3.1.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
+    "express-session": "^1.17.2",
     "mongoose": "^6.2.1"
   },
   "devDependencies": {
+    "@types/connect-mongodb-session": "^2.4.2",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
+    "@types/express-session": "^1.17.4",
     "@types/node": "^17.0.16",
     "nodemon": "^2.0.15",
     "ts-node": "^10.5.0",
