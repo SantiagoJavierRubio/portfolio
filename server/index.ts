@@ -1,11 +1,12 @@
-import express from 'express'
+import express, { Application } from 'express'
 import cors from 'cors'
 import session from 'express-session'
 import MongoDBStore, { MongoDBSessionOptions } from 'connect-mongodb-session'
 import mongoose, { ConnectOptions } from 'mongoose'
+import ejs from 'ejs'
 import "dotenv/config"
 
-const app = express()
+const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('./public'))
@@ -20,6 +21,11 @@ const store = new MONGOSTORE(
         if(err) console.error(`Mongo session store error -> ${err}`)
     }
 )
+declare module 'express-session' {
+    interface SessionData {
+        authorized: boolean
+    }
+}
 app.use(session({
     secret: `${process.env.SESSION_SECRET}`,
     cookie: {
@@ -35,7 +41,8 @@ app.use(cors({ credentials: true, origin: 'localhost' }))
 app.get('/', (req, res) => {
     res.send("Welcome to my server!")
 })
-
+app.set('views', './public/views')
+app.set('view engine', 'ejs')
 import adminRoutes from './routes/adminRoutes'
 app.use('/admin', adminRoutes)
 

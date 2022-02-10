@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/admin_head.ejs'); %>
+    <body>
+        <div class="container">
+            <h1>Administration page</h1>
+            <% if(errorData.error) { %>
+                <p class="error-msg"><%= errorData.message %></p>
+            <% } else { %>
+                <p>Please enter admin credentials to access admin features</p>
+            <% } %>
+            <form method="POST" action="/admin/auth">
+                <div class="form-element">
+                    <label for="email">Admin email</label>
+                    <input type="text" name="email" required>
+                </div>
+                <div class="form-element">
+                    <label for="password">Admin password</label>
+                    <input type="password" name="password" required>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+    <%- include('../partials/admin_foot.ejs'); %>
+</html>
