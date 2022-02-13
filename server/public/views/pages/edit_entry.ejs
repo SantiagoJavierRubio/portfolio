@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/admin_head.ejs'); %>
+    <body>
+        <div id="edit-page" class="container">
+            <form method="POST" action="/admin/edit?id=<%= entry.id %>">
+                <input name="name" id="name" placeholder="<%= entry.name %>" value="<%= entry.name %>" type="text">
+                <textarea name="description" id="description" placeholder="<%= entry.description %>"><%= entry.description %></textarea>
+                <input name="siteUrl" id="siteUrl" placeholder="<%= entry.siteUrl %>" value="<%= entry.siteUrl %>" type="text" >
+                <input name="gitUrl" id="gitUrl" placeholder="<%= entry.gitUrl %>" value="<%= entry.gitUrl %>" type="text">
+                <!-- <input name="date" type="date" id="date" value="<%= entry.date %>" disabled hidden readonly>
+                <input name="likes" type="number" value="<%= entry.likes %>" disabled hidden readonly>
+                <input name="position" type="number" value="<%= entry.position %>" disabled hidden readonly> -->
+                <div id="checkbox-options">
+                    <div class="options">
+                        <%
+                            entry.langs.forEach(language => {
+                        %>
+                            <div class="checkbox-option">
+                                <label for="<%= language %>"><%= language %></label>
+                                <input type="checkbox" name="langs" value="<%= language %>" id="<%= language %>" checked>
+                            </div>
+                        <%  }) %>
+                    </div>
+                    <div id="other-opts">
+                        <label for="newLang">Add another:</label>
+                        <input type="text" id="newLang">
+                        <button type="button" id="new-lang-btn" onclick="addNewLanguage(); return false">Add</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit changes</button>
+            </form>
+            <button type="button" id="delete-btn">Delete this entry</button>
+        </div>
+        <script>
+            function addNewLanguage() {
+                const language = document.querySelector('#newLang').value
+                if(language == '') return
+                const appendNodes = `
+                    <div class="checkbox-option">
+                        <label for="${language}">${language}</label>
+                        <input type="checkbox" name="langs" value="${language}" id="${language}">
+                    </div>
+                    `
+                const opts = document.querySelector('#checkbox-options .options')
+                opts.innerHTML += appendNodes
+            }
+        </script>
+    </body>
+    <%- include('../partials/admin_foot.ejs'); %>
+</html>

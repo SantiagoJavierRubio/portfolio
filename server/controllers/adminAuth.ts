@@ -1,4 +1,4 @@
-import { Request, Response } from 'express'
+import { Request, Response, NextFunction } from 'express'
 import bcrypt from 'bcryptjs'
 import url from 'url'
 import SuperUser from '../models/superUser'
@@ -12,7 +12,7 @@ const home = (req: Request, res: Response) => {
     let errorMsg: string = ''
     if(req.query.authError == 'password'){
         errorMsg = "Incorrect password"
-    } else if (req.query.authError == 'user') {
+    } else if(req.query.authError == 'user') {
         errorMsg = "Invalid user"
     }
 
@@ -22,14 +22,14 @@ const home = (req: Request, res: Response) => {
     }
     
     if(req.session.authorized){
-        res.render('pages/admin.ejs')
+        res.redirect('/admin/entries')
     } else {
         res.render('pages/admin_login.ejs', {errorData: e})
     }
 }
 
 const auth = async (req: Request, res: Response) => {
-    try{
+    try {
         const userInput = req.body
         const admin = await SuperUser.findOne({"email": userInput.email})
         if(!admin) {
@@ -50,14 +50,15 @@ const auth = async (req: Request, res: Response) => {
             req.session.save(err => { if(err) throw err })
             res.redirect('/admin')
         })
-    }catch(err){
+    } catch(err) {
         console.log(err)
         res.redirect('/admin')
     }
 }
 
-const logout = (req: Request, res: Response) => {
+const logout = async (req: Request, res: Response) => {
     try{
+        req.session.authorized = false
         req.session.destroy(err => { if(err) throw err })
         res.redirect('/admin')
     }catch(err){
@@ -83,4 +84,12 @@ const logout = (req: Request, res: Response) => {
 //     }
 // }
 
-export default {home, auth, logout}
+const checkSession = (req: Request, res: Response, next: NextFunction) => {
+    if(req.session.authorized){
+        next()
+    } else {
+        res.redirect('/admin')
+    }
+}
+
+export {home, auth, logout, checkSession}

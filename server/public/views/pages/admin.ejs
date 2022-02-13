@@ -2,7 +2,71 @@
 <html lang="en">
     <%- include('../partials/admin_head.ejs'); %>
     <body>
-        <h1>bienvenido</h1>
+        <div class="top-bar">
+            <a href="/admin/logout">Logout</a>
+        </div>
+        <div class="container" id="admin">
+            <h1>Administration page</h1>
+            <p class="admin-section-text">Add new portfolio element:</p>
+            <form method="POST" action="/admin/new_entry">
+                <label for="name">Project name:</label>
+                <input name="name" type="text" id="name" required>
+                <label for="url">Site demo url:</label>
+                <input name="siteUrl" type="text" id="url" required>
+                <label for="git">Github url:</label>
+                <input name="gitUrl" type="text" id="git" required>
+                <label for="description">Description:</label>
+                <textarea name="description"  id="description" required></textarea>
+                <label for="checkbox-options">Languages/technologies used:</label>
+                <div id="checkbox-options">
+                    <div class="options">
+                        <% if(langList) { 
+                            langList.forEach(language => {
+                        %>
+                            <div class="checkbox-option">
+                                <label for="<%= language %>"><%= language %></label>
+                                <input type="checkbox" name="langs" value="<%= language %>" id="<%= language %>">
+                            </div>
+                        <%  })} %>
+                    </div>
+                    <div id="other-opts">
+                        <label for="newLang">Add another:</label>
+                        <input type="text" id="newLang">
+                        <button type="button" id="new-lang-btn" onclick="addNewLanguage(); return false">Add</button>
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Submit</button>
+            </form>
+            <p class="admin-section-text">View and edit portfolio elements:</p>
+            <div class="admin-entries">
+                <% if(!entries) { %>
+                    <p>No projects to show</p>
+                <% } else {
+                    entries.forEach(entry => {
+                %>
+                        <div class="entry">
+                            <h6><%= entry.name %></h6>
+                            <p><%= entry.date.toISOString().slice(0, 10) %></p>
+                            <a href="<%= entry.siteUrl %>" target="_blank" ref="noreferer">Demo page</a>
+                            <a href="/admin/edit?id=<%= entry._id %>">Edit</a>
+                        </div>
+                <% })} %>
+            </div>
+        </div>
+        <script>
+            function addNewLanguage() {
+                const language = document.querySelector('#newLang').value
+                if(language == '') return
+                const appendNodes = `
+                    <div class="checkbox-option">
+                        <label for="${language}">${language}</label>
+                        <input type="checkbox" name="langs" value="${language}" id="${language}">
+                    </div>
+                    `
+                const opts = document.querySelector('#checkbox-options .options')
+                opts.innerHTML += appendNodes
+            }
+        </script>
     </body>
     <%- include('../partials/admin_foot.ejs'); %>
 </html>

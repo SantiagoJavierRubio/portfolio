@@ -17,13 +17,13 @@ body {
     max-width: 1280px;
     margin: auto;
 }
-h1 {
+#login h1 {
     margin: 0;
     font-size: 2rem;
     font-weight: 600;
     text-align: center;
 }
-p {
+.login-info {
     text-align: center;
 }
 .error-msg {
@@ -35,9 +35,18 @@ form {
     border-radius: 12px;
     padding: 1.5rem 2rem;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.4);
+}
+#login form {
     width: 25rem;
     min-width: 15rem;
     max-width: 50%; 
+}
+#admin form {
+    width: 80%;
+    margin: .2rem auto 1rem auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 .form-element {
     width: 100%;
@@ -57,7 +66,7 @@ form {
     text-align: right;
     width: 40%;
 }
-form button {
+.submit-btn {
     margin-top: 1rem;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -76,12 +85,86 @@ form button:active {
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
     background-color: aqua;
 }
-
+#admin {
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 100%;
+}
+#admin h1 {
+    font-size: 3.5rem;
+    margin-bottom: .5rem;
+}
+#admin form label {
+    margin-top: 1rem;
+}
+#admin form input {
+    padding: .25rem;
+}
+#admin form textarea {
+    resize: vertical;
+    width: 100%;
+    padding: .25rem;
+    font-style: italic;
+}
+.admin-section-text {
+    font-size: 2rem;
+    text-decoration: underline;
+    padding-left: .5rem;
+    margin: 1.5rem 1rem 1rem;
+}
+#checkbox-options {
+    border: 1px solid rgba(0,0,0);
+    border-radius: 4px;
+    padding: .5rem;
+    height: fit-content;
+}
+#checkbox-options .options {
+    min-height: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    margin-bottom: .75rem;
+}
+.checkbox-option label {
+    margin: 0 !important;
+    padding: 0;
+}
+.checkbox-option{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    height: min-content;
+}
+#other-opts {
+    float: right;
+}
+#new-lang-btn {
+    padding: .35rem .5rem;
+    border: none;
+    background-color:rgb(213, 126, 213);
+    border-radius: 4px;
+    cursor: pointer
+}
+.admin-entries {
+    margin: 0;
+    width: 100%;
+}
+.entry {
+    width: 80%;
+    margin: 1rem auto;
+    padding: 1.5rem 2rem;
+    background-color: beige;
+    border: 1px solid rgb(125,125,125);
+    border-radius: 12px;
+    box-shadow: 1px 3px 5px rgba(0,0,0,0.4);
+}
 @media only screen and (max-width: 550px) {
     .container{
         padding: 0;
     }
-    form {
+    #login form {
         width: 95%;
         max-width: 95%;
         padding: 1rem .2rem;
@@ -89,5 +172,9 @@ form button:active {
     }
     .form-element {
         width: 95%;
+    }
+    #checkbox-options .options {
+        flex-direction: column;
+        align-items: center;
     }
 }

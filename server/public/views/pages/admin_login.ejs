@@ -2,12 +2,12 @@
 <html lang="en">
     <%- include('../partials/admin_head.ejs'); %>
     <body>
-        <div class="container">
+        <div class="container" id="login">
             <h1>Administration page</h1>
             <% if(errorData.error) { %>
                 <p class="error-msg"><%= errorData.message %></p>
             <% } else { %>
-                <p>Please enter admin credentials to access admin features</p>
+                <p class="login-info">Please enter admin credentials to access admin features</p>
             <% } %>
             <form method="POST" action="/admin/auth">
                 <div class="form-element">
@@ -18,7 +18,7 @@
                     <label for="password">Admin password</label>
                     <input type="password" name="password" required>
                 </div>
-                <button type="submit">Submit</button>
+                <button type="submit" class="submit-btn">Submit</button>
             </form>
         </div>
     </body>

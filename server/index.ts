@@ -41,6 +41,9 @@ app.use(cors({ credentials: true, origin: 'localhost' }))
 app.get('/', (req, res) => {
     res.send("Welcome to my server!")
 })
+app.post('/', (req, res) => {
+    res.status(200).json(req.body)
+})
 app.set('views', './public/views')
 app.set('view engine', 'ejs')
 import adminRoutes from './routes/adminRoutes'

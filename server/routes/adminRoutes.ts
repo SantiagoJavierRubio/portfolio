@@ -1,10 +1,19 @@
 import { Router } from 'express'
-import adminControls from '../controllers/admin'
+import { home, auth, logout, checkSession } from '../controllers/adminAuth'
+import { createNew, edit, getAll, getById } from '../controllers/adminFuncs'
 
 const router = Router()
 
-router.get('/', adminControls.home)
-router.post('/auth', adminControls.auth)
-router.get('/logout', adminControls.logout)
+// auth routes
+router.get('/', home)
+router.post('/auth', auth)
+router.get('/logout', logout)
+
+// function routes
+router.get('/entries', checkSession, getAll)
+router.post('/new_entry', checkSession, createNew)
+router.get('/edit', checkSession, getById)
+router.post('/edit', checkSession, edit)
+
 
 export default router
