@@ -10,13 +10,13 @@
             <p class="admin-section-text">Add new portfolio element:</p>
             <form method="POST" action="/admin/new_entry">
                 <label for="name">Project name:</label>
-                <input name="name" type="text" id="name" required>
+                <input name="name" type="text" id="name" maxlength=50 required>
                 <label for="url">Site demo url:</label>
                 <input name="siteUrl" type="text" id="url" required>
                 <label for="git">Github url:</label>
                 <input name="gitUrl" type="text" id="git" required>
                 <label for="description">Description:</label>
-                <textarea name="description"  id="description" required></textarea>
+                <textarea name="description" id="description" maxlength=1000 required></textarea>
                 <label for="checkbox-options">Languages/technologies used:</label>
                 <div id="checkbox-options">
                     <div class="options">
@@ -40,33 +40,22 @@
             <p class="admin-section-text">View and edit portfolio elements:</p>
             <div class="admin-entries">
                 <% if(!entries) { %>
-                    <p>No projects to show</p>
+                    <p class="noentries">No projects to show</p>
                 <% } else {
                     entries.forEach(entry => {
                 %>
                         <div class="entry">
-                            <h6><%= entry.name %></h6>
-                            <p><%= entry.date.toISOString().slice(0, 10) %></p>
-                            <a href="<%= entry.siteUrl %>" target="_blank" ref="noreferer">Demo page</a>
-                            <a href="/admin/edit?id=<%= entry._id %>">Edit</a>
+                            <div class="entry-info">
+                                <h6><%= entry.name %></h6>
+                                <p><%= entry.date.toISOString().slice(0, 10) %></p>
+                                <a href="<%= entry.siteUrl %>" target="_blank" ref="noreferer">Demo page</a>
+                            </div>
+                            <a class="edit-btn" href="/admin/edit?id=<%= entry._id %>">Edit</a>
                         </div>
                 <% })} %>
             </div>
         </div>
-        <script>
-            function addNewLanguage() {
-                const language = document.querySelector('#newLang').value
-                if(language == '') return
-                const appendNodes = `
-                    <div class="checkbox-option">
-                        <label for="${language}">${language}</label>
-                        <input type="checkbox" name="langs" value="${language}" id="${language}">
-                    </div>
-                    `
-                const opts = document.querySelector('#checkbox-options .options')
-                opts.innerHTML += appendNodes
-            }
-        </script>
+        <script src="main.js"></script>
     </body>
     <%- include('../partials/admin_foot.ejs'); %>
 </html>

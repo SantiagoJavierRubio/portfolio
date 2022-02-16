@@ -2,15 +2,35 @@
 <html lang="en">
     <%- include('../partials/admin_head.ejs'); %>
     <body>
+        <div class="top-bar">
+            <a href="/admin/entries">Back</a>
+        </div>
         <div id="edit-page" class="container">
             <form method="POST" action="/admin/edit?id=<%= entry.id %>">
-                <input name="name" id="name" placeholder="<%= entry.name %>" value="<%= entry.name %>" type="text">
-                <textarea name="description" id="description" placeholder="<%= entry.description %>"><%= entry.description %></textarea>
+                <label for="name">Project name:</label>
+                <input name="name" id="name" placeholder="<%= entry.name %>" value="<%= entry.name %>" type="text" maxlength=50>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" placeholder="<%= entry.description %>" maxlength=1000><%= entry.description %></textarea>
+                <label for="url">Site demo url:</label>
                 <input name="siteUrl" id="siteUrl" placeholder="<%= entry.siteUrl %>" value="<%= entry.siteUrl %>" type="text" >
+                <label for="git">Github url:</label>
                 <input name="gitUrl" id="gitUrl" placeholder="<%= entry.gitUrl %>" value="<%= entry.gitUrl %>" type="text">
-                <!-- <input name="date" type="date" id="date" value="<%= entry.date %>" disabled hidden readonly>
-                <input name="likes" type="number" value="<%= entry.likes %>" disabled hidden readonly>
-                <input name="position" type="number" value="<%= entry.position %>" disabled hidden readonly> -->
+                <label for="immutable-props">Other properties:</label>
+                <div id="immutable-props">
+                    <div>
+                        <label for="date">Date:</label>
+                        <input name="date" type="date" id="date" value="<%= new Date(entry.date).toISOString().substring(0, 10) %>" disabled readonly>
+                    </div>
+                    <div>
+                        <label for="likes">Likes:</label>
+                        <input name="likes" type="number" value="<%= entry.likes %>" disabled readonly>
+                    </div>
+                    <div>
+                        <label for="likes">Position:</label>
+                        <input name="position" type="number" step=1 min=0 value="<%= entry.position %>">
+                    </div>
+                </div>
+                <label for="checkbox-options">Languages/technologies used:</label>
                 <div id="checkbox-options">
                     <div class="options">
                         <%
@@ -30,22 +50,9 @@
                 </div>
                 <button type="submit" class="submit-btn">Submit changes</button>
             </form>
-            <button type="button" id="delete-btn">Delete this entry</button>
+            <button type="button" id="delete-btn" onclick="handleDelete('<%= entry._id %>')">Delete this entry</button>
         </div>
-        <script>
-            function addNewLanguage() {
-                const language = document.querySelector('#newLang').value
-                if(language == '') return
-                const appendNodes = `
-                    <div class="checkbox-option">
-                        <label for="${language}">${language}</label>
-                        <input type="checkbox" name="langs" value="${language}" id="${language}">
-                    </div>
-                    `
-                const opts = document.querySelector('#checkbox-options .options')
-                opts.innerHTML += appendNodes
-            }
-        </script>
+        <script src="main.js"></script>
     </body>
     <%- include('../partials/admin_foot.ejs'); %>
 </html>

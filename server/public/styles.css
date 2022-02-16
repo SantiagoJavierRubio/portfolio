@@ -30,7 +30,7 @@ body {
     color: red
 }
 form {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     border: 1px solid rgb(125,125,125);
     border-radius: 12px;
     padding: 1.5rem 2rem;
@@ -41,7 +41,8 @@ form {
     min-width: 15rem;
     max-width: 50%; 
 }
-#admin form {
+#admin form, 
+#edit-page form {
     width: 80%;
     margin: .2rem auto 1rem auto;
     display: flex;
@@ -72,18 +73,20 @@ form {
     transform: translateX(-50%);
     cursor: pointer;
     padding: .8rem;
-    background-color: lightblue;
+    background-color: rgb(173, 216, 230);
     border: none;
     border-radius: 12px;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
     transition: box-shadow .1s ease-out;
+    font-size: 1.2rem;
+    font-weight: 500;
 }
 form button:hover {
     box-shadow: 1px 3px 5px rgba(0,0,0,0.4);
 }
 form button:active {
     box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
-    background-color: aqua;
+    background-color: rgb(0, 255, 255);
 }
 #admin {
     justify-content: flex-start;
@@ -94,13 +97,32 @@ form button:active {
     font-size: 3.5rem;
     margin-bottom: .5rem;
 }
-#admin form label {
+#admin form label,
+#edit-page form label {
     margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: rgb(74, 74, 74);
 }
-#admin form input {
+form #immutable-props {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+form #immutable-props label {
+    font-size: .82rem;
+}
+#admin form input,
+#edit-page form input {
     padding: .25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: .2rem;
 }
-#admin form textarea {
+#admin form textarea,
+#edit-page form textarea {
     resize: vertical;
     width: 100%;
     padding: .25rem;
@@ -155,10 +177,91 @@ form button:active {
     width: 80%;
     margin: 1rem auto;
     padding: 1.5rem 2rem;
-    background-color: beige;
+    background-color: rgb(245, 245, 220);
     border: 1px solid rgb(125,125,125);
     border-radius: 12px;
     box-shadow: 1px 3px 5px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+.entry .entry-info {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space;
+    align-items: center;
+    gap: 5%;
+}
+.entry-info h6 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.entry-info p {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    font-style: italic;
+    color:rgb(74, 74, 74);
+}
+.entry-info a {
+    font-size: 1rem;
+    font-weight: 500;
+}
+.entry .edit-btn {
+    min-width: 10%;
+    flex-grow: 0;
+    cursor: pointer;
+    padding: .8rem;
+    background-color: rgb(213, 98, 213);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    text-decoration: none;
+    font-style: normal;
+    color: rgb(0,0,0);
+    transition: box-shadow .1s ease-in-out;
+}
+.entry .edit-btn:hover {
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.45);
+}
+.entry .edit-btn:active {
+    box-shadow: 1px 2px 3px rgba(0,0,0,0.1);
+    color: rgb(255,255,255)
+}
+#delete-btn {
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(249, 59, 38);
+    color: rgb(43, 37, 37);
+    cursor: pointer;
+    box-shadow: 1px 2px 5px rgb(191, 55, 40, 0.4);
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: box-shadow 0.2s ease-in-out, transform 0.01s ease-out;
+    margin-top: 3rem;
+}
+#delete-btn:hover {
+    transform: translateY(-.05rem);
+    box-shadow: 1px 2px 12px rgba(227, 30, 8, 0.4);
+}
+#delete-btn:active {
+    transform: translateY(0);
+    background-color: rgb(255, 0, 0);
+    box-shadow: 1px 2px 5px rgb(191, 55, 40, 0.4);
+}
+.noentries {
+    margin: auto;
+    text-align: center;
+    font-size: 1.2rem;
 }
 @media only screen and (max-width: 550px) {
     .container{

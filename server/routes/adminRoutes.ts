@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { home, auth, logout, checkSession } from '../controllers/adminAuth'
-import { createNew, edit, getAll, getById } from '../controllers/adminFuncs'
+import { createNew, edit, getAll, getById, deleteById } from '../controllers/adminFuncs'
 
 const router = Router()
 
@@ -14,6 +14,7 @@ router.get('/entries', checkSession, getAll)
 router.post('/new_entry', checkSession, createNew)
 router.get('/edit', checkSession, getById)
 router.post('/edit', checkSession, edit)
+router.delete('/edit/:id', checkSession, deleteById)
 
 
 export default router

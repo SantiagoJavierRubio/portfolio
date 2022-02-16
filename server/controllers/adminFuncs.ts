@@ -43,11 +43,8 @@ const getById = async (req: Request, res: Response) => {
     try {
         const id = req.query.id
         const entry = await PortfolioItem.findById(id)
-        if(entry){
-            res.render('pages/edit_entry.ejs', {entry})
-        } else {
-            res.sendStatus(404)
-        }
+        if(!entry) return res.sendStatus(404)
+        res.render('pages/edit_entry.ejs', {entry})
     } catch(err) {
         console.log(err)
     }
@@ -62,11 +59,19 @@ const edit = async (req: Request, res: Response) => {
         if(userInput.siteUrl) userInput.siteUrl = curateUrl(userInput.siteUrl)
         if(userInput.gitUrl) userInput.gitUrl = curateUrl(userInput.gitUrl)
         const edited = await PortfolioItem.findByIdAndUpdate(req.query.id, userInput)
-        if(edited){
-            res.redirect('/admin')
-        } else {
-            res.sendStatus(500)
-        }
+        if(!edited) return res.sendStatus(500)
+        res.redirect('/admin')
+    } catch(err) {
+        console.log(err)
+    }
+}
+
+const deleteById = async (req: Request, res: Response) => {
+    try {
+        const id = req.params.id
+        const deleted = await PortfolioItem.findByIdAndDelete(id)
+        if(!deleted) return res.sendStatus(500)
+        res.sendStatus(200)
     } catch(err) {
         console.log(err)
     }
@@ -78,4 +83,4 @@ const curateUrl = (url: string): string => {
 }
 
 
-export { createNew, getAll, getById, edit }
+export { createNew, getAll, getById, edit, deleteById }
