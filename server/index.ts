@@ -3,13 +3,13 @@ import cors from 'cors'
 import session from 'express-session'
 import MongoDBStore, { MongoDBSessionOptions } from 'connect-mongodb-session'
 import mongoose, { ConnectOptions } from 'mongoose'
-import ejs from 'ejs'
+import path from 'path'
 import "dotenv/config"
 
 const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('./public'))
+app.use(express.static(path.join(__dirname, '/public')))
 
 const MONGOSTORE = MongoDBStore(session)
 const store = new MONGOSTORE(
