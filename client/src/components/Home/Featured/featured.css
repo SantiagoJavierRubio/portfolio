@@ -1,0 +1,9 @@
+#featured {
+    background-color: rgba(7, 114, 85, 1);
+}
+#featured-top {
+    top: -100%;
+}
+#featured-bottom {
+    top: 100%;
+}

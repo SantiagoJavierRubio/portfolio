@@ -1,0 +1,10 @@
+#Menu-actions {
+    margin: 0;
+    padding: 0;
+}
+.MuiSpeedDialAction-staticTooltipLabel {
+    background-color: transparent !important;
+    font-size: 1.2rem !important;
+    color: #fff !important;
+    margin: 0 !important;
+}
