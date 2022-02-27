@@ -11,21 +11,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(9, 10, 10);
   overflow-y: scroll;
-  width: 100vw;
-}
-section {
-  position: relative;
-  min-height: 10vh;
-  padding: .5rem 10%;
+  /* width: 100vw; */
 }
 .separatorCurve {
   width: 100%;
-  position: absolute;
-  left: 0;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  aspect-ratio:2/1;
+  aspect-ratio:4/1;
   z-index: -1;
   overflow: hidden;
   line-height: 0;
