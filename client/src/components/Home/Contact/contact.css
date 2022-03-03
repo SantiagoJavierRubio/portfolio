@@ -1,5 +1,9 @@
 #contact {
     background-color: rgb(173, 113, 164);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 #questions {
     width: 80%;
@@ -9,9 +13,23 @@
     gap: 20%
 }
 #questions h6 {
-    font-size: 1.25rem;
-    font-weight: 500;
+    font-size: 1.35rem;
+    font-weight: 300;
+    color: rgb(9, 10, 10);
 }
 #questions :nth-child(2) {
     transform: translateY(-2.5rem);
+}
+#contact form {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    gap: 1rem;
+    min-width: 15rem;
+    width: 50%;
+    max-width: 35rem;
+}
+#contact form textarea {
+    resize: vertical;
 }

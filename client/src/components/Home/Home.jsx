@@ -4,8 +4,9 @@ import Contact from './Contact/Contact'
 
 import TopGreenCurve from '../SVGS/green_curve_top_3.svg'
 import BottomGreenCurve from '../SVGS/green_curve_bottom_1.svg'
-import TopPurpleCurve from '../SVGS/green_curve_top_3.svg'
-import BottomPurpleCurve from '../SVGS/green_curve_bottom_1.svg'
+import TopPurpleCurve from '../SVGS/purple_curve_top_2.svg'
+import BottomPurpleCurve from '../SVGS/purple_curve_bottom_1.svg'
+
 import './home.css'
 
 const Home = () => {
@@ -19,14 +20,14 @@ const Home = () => {
             <Featured />
             <div className="separatorCurve" id="featured-bottom" style={{
                 backgroundImage: `url(${BottomGreenCurve})`
-            }}>            
+            }}>
             </div>
-            <div className="separatorCurve" id="featured-top" style={{
+            <div className="separatorCurve" id="contact-top" style={{
                 backgroundImage: `url(${TopPurpleCurve})`
             }}>         
             </div>
             <Contact />
-            <div className="separatorCurve" id="featured-bottom" style={{
+            <div className="separatorCurve" id="contact-bottom" style={{
                 backgroundImage: `url(${BottomPurpleCurve})`
             }}>            
             </div>
