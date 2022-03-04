@@ -1,8 +1,10 @@
-import { SpeedDial, SpeedDialAction, SpeedDialIcon } from '@mui/material'
+import { SpeedDial, SpeedDialAction } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import WorkIcon from '@mui/icons-material/Work'
 import InfoIcon from '@mui/icons-material/Info'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
+import { useDispatch } from 'react-redux'
+import { setView, pages } from '../../../redux/ducks/views.js'
 import './menu.css'
 
 const optionStyle = {
@@ -14,6 +16,18 @@ const optionStyle = {
 }
 
 const Menu = () => {
+
+    const dispatch = useDispatch()
+    const handleScrollToContact = () => {
+        return
+    }
+    const handleNavigation = (direction) => {
+        if(direction === 'contact'){
+            dispatch(setView(pages.HOME))
+            return handleScrollToContact()
+        }
+        dispatch(setView(direction))
+    }
     return(
         <SpeedDial
             ariaLabel='Menu'
@@ -36,18 +50,21 @@ const Menu = () => {
                 tooltipTitle="Portfolio"
                 tooltipOpen
                 FabProps={{sx:optionStyle}}
+                onClick={() => handleNavigation(pages.PORTFOLIO)}
             />
             <SpeedDialAction 
                 icon={<InfoIcon />}
                 tooltipTitle="About"
                 tooltipOpen
                 FabProps={{sx:optionStyle}}
+                onClick={() => handleNavigation(pages.ABOUT)}
             />
             <SpeedDialAction 
                 icon={<ContactMailIcon />}
                 tooltipTitle="Contact"
                 tooltipOpen
                 FabProps={{sx:optionStyle}}
+                onClick={() => handleNavigation('contact')}
             />
         </SpeedDial>
     )
