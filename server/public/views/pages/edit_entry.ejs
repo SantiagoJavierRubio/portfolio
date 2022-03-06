@@ -9,6 +9,10 @@
             <form method="POST" action="/admin/edit?id=<%= entry.id %>">
                 <label for="name">Project name:</label>
                 <input name="name" id="name" placeholder="<%= entry.name %>" value="<%= entry.name %>" type="text" maxlength=50>
+                <label for="summary">Summary:</label>
+                <input name="summary" type="text" id="summary" placeholder="<%= entry.summary %>" value="<%= entry.summary %>" maxlength="120">
+                <label for="thumbnail">Thumbnail:</label>
+                <input name="thumbnail" type="text" id="thumbnail" placeholder="<%= entry.thumbnail %>" value="<%= entry.thumbnail %>">
                 <label for="description">Description:</label>
                 <textarea name="description" id="description" placeholder="<%= entry.description %>" maxlength=1000><%= entry.description %></textarea>
                 <label for="url">Site demo url:</label>
@@ -22,12 +26,16 @@
                         <input name="date" type="date" id="date" value="<%= new Date(entry.date).toISOString().substring(0, 10) %>" disabled readonly>
                     </div>
                     <div>
-                        <label for="likes">Likes:</label>
-                        <input name="likes" type="number" value="<%= entry.likes %>" disabled readonly>
+                        <label for="visits">Visits:</label>
+                        <input name="visits" id="visits" type="number" step=1 min=0 value="<%= entry.visits %>" disabled readonly>
                     </div>
                     <div>
-                        <label for="likes">Position:</label>
-                        <input name="position" type="number" step=1 min=0 value="<%= entry.position %>">
+                        <label for="likes">Likes:</label>
+                        <input name="likes" id="likes" type="number" value="<%= entry.likes %>" disabled readonly>
+                    </div>
+                    <div>
+                        <label for="position">Position:</label>
+                        <input name="position" id="position" type="number" step=1 min=0 value="<%= entry.position %>">
                     </div>
                 </div>
                 <label for="checkbox-options">Languages/technologies used:</label>
@@ -45,7 +53,7 @@
                     <div id="other-opts">
                         <label for="newLang">Add another:</label>
                         <input type="text" id="newLang">
-                        <button type="button" id="new-lang-btn" onclick="addNewLanguage(); return false">Add</button>
+                        <button type="button" id="new-lang-btn" onclick="addNewLanguage()">Add</button>
                     </div>
                 </div>
                 <button type="submit" class="submit-btn">Submit changes</button>

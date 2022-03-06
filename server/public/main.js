@@ -1,6 +1,6 @@
 function addNewLanguage() {
     const language = document.querySelector('#newLang').value
-    if(language == '') return
+    if(language == '') return false
     const appendNodes = `
         <div class="checkbox-option">
             <label for="${language}">${language}</label>
@@ -9,6 +9,7 @@ function addNewLanguage() {
         `
     const opts = document.querySelector('#checkbox-options .options')
     opts.innerHTML += appendNodes
+    return false
 }
 
 function handleDelete(id) {
