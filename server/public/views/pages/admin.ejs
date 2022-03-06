@@ -11,6 +11,10 @@
             <form method="POST" action="/admin/new_entry">
                 <label for="name">Project name:</label>
                 <input name="name" type="text" id="name" maxlength=50 required>
+                <label for="summary">Summary:</label>
+                <input name="summary" type="text" id="summary" maxlength="120" required>
+                <label for="thumbnail">Thumbnail:</label>
+                <input name="thumbnail" type="text" id="thumbnail" required>
                 <label for="url">Site demo url:</label>
                 <input name="siteUrl" type="text" id="url" required>
                 <label for="git">Github url:</label>
@@ -32,7 +36,7 @@
                     <div id="other-opts">
                         <label for="newLang">Add another:</label>
                         <input type="text" id="newLang">
-                        <button type="button" id="new-lang-btn" onclick="addNewLanguage(); return false">Add</button>
+                        <button type="button" id="new-lang-btn" onclick="addNewLanguage()">Add</button>
                     </div>
                 </div>
                 <button type="submit" class="submit-btn">Submit</button>

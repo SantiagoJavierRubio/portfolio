@@ -48,6 +48,8 @@ app.set('views', './public/views')
 app.set('view engine', 'ejs')
 import adminRoutes from './routes/adminRoutes'
 app.use('/admin', adminRoutes)
+import apiRoutes from './routes/apiRoutes'
+app.use('/api', apiRoutes)
 
 const PORT = process.env.PORT || 8080
 const MONGO_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true }
