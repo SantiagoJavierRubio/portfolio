@@ -10,15 +10,15 @@ const PortfolioCard = ({entry}) => {
         dispatch(setView(pages.PORTFOLIO, entry.id))
     }
     return(
-        <Card className="entryCard">
-            <CardActionArea style={{height: '100%'}} onClick={handleGoToEntry}>
+        <Card className="entryCard" style={{ backgroundColor: 'rgba(9, 10, 10, 0.80)'}}>
+            <CardActionArea style={{height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}} onClick={handleGoToEntry}>
+                <h3 className="cardTitle">{entry.name}</h3>
                 <CardMedia 
                     component="img"
                     image={entry.thumbnail}
                     alt={`Screenshot for ${entry.name}`}
                 />
                 <CardContent>
-                    <h3 className="cardTitle">{entry.name}</h3>
                     <p className="cardDescription">{entry.description}</p>
                 </CardContent>
             </CardActionArea>

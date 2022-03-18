@@ -1,8 +1,10 @@
 .cardTitle {
-    font-size: 1.15rem;
-    margin: 0;
+    font-size: 1.7rem;
+    margin-top: 1rem;
     padding: 0;
+    color: whitesmoke;
 }
 .cardDescription {
     font-size: 1rem;
+    color: whitesmoke;
 }
