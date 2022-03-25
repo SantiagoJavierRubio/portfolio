@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, CardActionArea } from '@mui/material'
-import { setView, pages } from '../../redux/ducks/views.js'
+import { setView, pages } from '../../redux/ducks/views'
 import { useDispatch } from 'react-redux'
 import './portfolio_card.css'
 
@@ -19,7 +19,7 @@ const PortfolioCard = ({entry}) => {
                     alt={`Screenshot for ${entry.name}`}
                 />
                 <CardContent>
-                    <p className="cardDescription">{entry.description}</p>
+                    <p className="cardDescription">{entry.summary}</p>
                 </CardContent>
             </CardActionArea>
         </Card>

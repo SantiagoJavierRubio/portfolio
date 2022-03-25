@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux'
 import EntryList from './EntryList/EntryList'
 import EntryDetails from './EntryDetails/EntryDetails'
+import './portfolio.css'
 
 
 const Portfolio = () => {
