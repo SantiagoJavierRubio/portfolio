@@ -1,5 +1,5 @@
 import { Card, CardContent, CardMedia, CardActionArea } from '@mui/material'
-import { setView, pages } from '../../redux/ducks/views.js'
+import { setView, pages } from '../../redux/ducks/views'
 import { useDispatch } from 'react-redux'
 import './portfolio_card.css'
 
