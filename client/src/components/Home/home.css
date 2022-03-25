@@ -14,3 +14,14 @@ section {
     justify-content: center;
     align-items: center;
 }
+#featured-title {
+    color: rgb(178, 205, 210);
+    font-size: 1.6rem;
+    font-weight: 700;
+    position: absolute;
+    bottom: 15%;
+    left: .65rem;
+}
+#contact-top {
+    margin-top: -6.5%;
+}

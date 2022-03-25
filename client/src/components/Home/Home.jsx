@@ -9,13 +9,14 @@ import BottomPurpleCurve from '../SVGS/purple_curve_bottom_1.svg'
 
 import './home.css'
 
-const Home = () => {
+const Home = ({ contactRef }) => {
     return(
         <div id="home">
             <Intro />
             <div className="separatorCurve" id="featured-top" style={{
                 backgroundImage: `url(${TopGreenCurve})`
-            }}>         
+            }}>
+                <h2 id="featured-title">Featured projects:</h2>     
             </div>
             <Featured />
             <div className="separatorCurve" id="featured-bottom" style={{
@@ -26,7 +27,7 @@ const Home = () => {
                 backgroundImage: `url(${TopPurpleCurve})`
             }}>         
             </div>
-            <Contact />
+            <Contact contactRef={contactRef}/>
             <div className="separatorCurve" id="contact-bottom" style={{
                 backgroundImage: `url(${BottomPurpleCurve})`
             }}>            

@@ -5,7 +5,7 @@ import { Avatar } from '@mui/material'
 import Menu from './Menu/Menu'
 import './navbar.css'
 
-const NavBar = () => {
+const NavBar = ({ scrollToContact }) => {
 
     const [miniature, setMiniature] = useState(false)
     const dispatch = useDispatch()
@@ -18,14 +18,11 @@ const NavBar = () => {
         return () => window.removeEventListener('scroll', checkScroll)
     })
 
-    const handleScrollToContact = () => {
-        return
-    }
 
     const handleNavigation = (direction) => {
         if(direction === 'contact'){
             dispatch(setView(pages.HOME))
-            return handleScrollToContact()
+            return scrollToContact()
         }
         dispatch(setView(direction))
     }
@@ -43,7 +40,7 @@ const NavBar = () => {
             </div>
             <div className="sections">
                 {
-                miniature ? <Menu /> 
+                miniature ? <Menu scrollToContact={scrollToContact}/> 
                 : 
                 <>
                     <button className="sectionItem" onClick={() => handleNavigation(pages.PORTFOLIO)}>
