@@ -19,7 +19,7 @@ const PortfolioCard = ({entry}) => {
                     alt={`Screenshot for ${entry.name}`}
                 />
                 <CardContent>
-                    <p className="cardDescription">{entry.description}</p>
+                    <p className="cardDescription">{entry.summary}</p>
                 </CardContent>
             </CardActionArea>
         </Card>

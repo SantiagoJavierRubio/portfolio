@@ -16,11 +16,11 @@ section {
 }
 #featured-title {
     color: rgb(178, 205, 210);
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-size: 1.85rem;
+    font-weight: 500;
     position: absolute;
     bottom: 15%;
-    left: .65rem;
+    left: 1.5rem;
 }
 #contact-top {
     margin-top: -6.5%;

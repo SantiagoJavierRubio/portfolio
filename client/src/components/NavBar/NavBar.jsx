@@ -25,6 +25,9 @@ const NavBar = ({ scrollToContact }) => {
             return scrollToContact()
         }
         dispatch(setView(direction))
+        if(direction === pages.HOME){
+            window.scroll({top: 0, left: 0, behavior: 'smooth'})
+        }
     }
 
     return(
