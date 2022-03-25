@@ -1,5 +1,7 @@
 import { Request, Response } from "express"
 import PortfolioItem from "../models/portfolioItem"
+import transporter from "../nodemailer"
+import "dotenv/config"
 
 const getEntries = async (req: Request, res: Response) => {
     const id = req.params.id
@@ -34,4 +36,26 @@ const likeEntry = async (req: Request, res: Response) => {
     res.sendStatus(200)
 }
 
-export { getEntries, getFeatured, visitEntry, likeEntry }
+const sendEmail = async (req: Request, res: Response) => {
+    try {
+        const m = await transporter.sendMail({
+            from: `Portfolio Administrator <${process.env.EMAIL_USER}>`,
+            to: `${process.env.EMAIL_RECEIVER}`,
+            subject: 'Someone contacted you from your portfolio website',
+            text: `
+                Message from: ${req.body.name || 'anonymus'} <${req.body.email}>: \n
+                ${req.body.message}
+            `
+        })
+        if(m.accepted.length > 0) {
+            res.sendStatus(200)
+        } else {
+            res.sendStatus(400)
+        }
+    } catch(err) {
+        console.log(err)
+        res.sendStatus(500)
+    }
+}
+
+export { getEntries, getFeatured, visitEntry, likeEntry, sendEmail }
