@@ -1,6 +1,9 @@
-import { useState } from 'react'
-import { TextField, Button } from '@mui/material'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { TextField, Button, CircularProgress } from '@mui/material'
 import { styled } from '@mui/material/styles'
+import CheckCircleOutlineOutlinedIcon from '@mui/icons-material/CheckCircleOutlineOutlined';
+import ErrorOutlineOutlinedIcon from '@mui/icons-material/ErrorOutlineOutlined';
 import './contact.css'
 
 const CustomTextField = styled(TextField)({
@@ -20,21 +23,48 @@ const CustomTextField = styled(TextField)({
     },
 })
 
-const CustomButton = styled(Button)({
-    backgroundColor: '#0F729B',
-    fontWeight: 600,
-    "&:hover": {
-        backgroundColor: '#206B8A',
-    }
-})
-
 const Contact = ({ contactRef }) => {
 
     const [formData, setFormData] = useState({ name: undefined, email: undefined, message: undefined })
+    const [buttonState, setButtonState] = useState({ disabled: true, color: '#0F729B', secondaryColor: '#206B8A', fill: 'Send' })
 
-    const handleSubmit = (e) => {
+    const CustomButton = styled(Button)({
+        backgroundColor: buttonState.color,
+        fontWeight: 600,
+        "&:hover": {
+            backgroundColor: buttonState.secondaryColor,
+        }
+    })
+
+    useEffect(() => {
+        if(formData.email && formData.message) {
+            setButtonState({ ...buttonState, disabled: false })
+        } else {
+            setButtonState({ ...buttonState, disabled: true })
+        }
+    }, [formData])
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        
+        if(!formData.email || !formData.message) return
+        setButtonState({ ...buttonState, fill: <CircularProgress size={'1.5rem'}/> })
+        try {
+            const res = await axios.post('/api/contact', formData)
+            if(res.status === 200){
+                setButtonState({ ...buttonState, color: 'green', secondaryColor: 'green', fill: <CheckCircleOutlineOutlinedIcon size={'1.5rem'} /> })
+                e.target.reset()
+                setTimeout(() => {
+                    setButtonState({ ...buttonState, color: '#0F729B', secondaryColor: '#206B8A', fill: 'Send' })
+                    setFormData({ ...formData, message: undefined })
+                }, 1000)
+            }
+        } catch(err) {
+            console.log(err)
+            setButtonState({ ...buttonState, color: 'red', secondaryColor: 'red', fill: <ErrorOutlineOutlinedIcon size={'1.5rem'} /> })
+            setTimeout(() => {
+                setButtonState({ ...buttonState, color: '#0F729B', secondaryColor: '#206B8A', fill: 'Send' })
+            }, 2500)
+        }
     }
 
     return(
@@ -73,7 +103,10 @@ const Contact = ({ contactRef }) => {
                     className='contactField'
                     onChange={(e) => setFormData({...formData, message: e.target.value})}
                 />
-                <CustomButton variant='contained' color='primary' className='contactButton' type='submit' disabled={(!formData.email || !formData.message) ? true : false}>Send</CustomButton>
+                <CustomButton variant='contained' className='contactButton' type='submit' disabled={buttonState.disabled}>
+                    {buttonState.fill}
+                </CustomButton>
+                {buttonState.color === 'red' && <p className='error'>Something went wrong, please try again</p>}
             </form>
         </section>
     )

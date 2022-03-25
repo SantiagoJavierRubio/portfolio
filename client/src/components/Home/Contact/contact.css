@@ -49,3 +49,9 @@
 .contactField {
     flex-grow: 1;
 }
+#contact form .error {
+    margin: 0;
+    color: whitesmoke;
+    font-size: .75rem;
+    font-weight: 500;
+}
