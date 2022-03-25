@@ -28,7 +28,7 @@
     align-items: center;
     cursor: pointer;
     position: relative;
-    color: #b2cdd2;
+    color: rgb(178, 205, 210);
 }
 #goToPortfolio button::after{
     content: '';

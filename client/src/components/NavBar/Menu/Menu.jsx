@@ -15,16 +15,13 @@ const optionStyle = {
     }
 }
 
-const Menu = () => {
+const Menu = ({ scrollToContact }) => {
 
     const dispatch = useDispatch()
-    const handleScrollToContact = () => {
-        return
-    }
     const handleNavigation = (direction) => {
         if(direction === 'contact'){
             dispatch(setView(pages.HOME))
-            return handleScrollToContact()
+            return scrollToContact()
         }
         dispatch(setView(direction))
     }
@@ -44,6 +41,7 @@ const Menu = () => {
                         }
                 }}
             }
+            style={{position: 'absolute', top: 0, right: '.5rem'}}
         >
             <SpeedDialAction 
                 icon={<WorkIcon />}
