@@ -10,13 +10,15 @@ const getEntries = async (req: Request, res: Response) => {
         return res.send(allEntries)
     }
     const entryById = await PortfolioItem.findById(id)
-    res.send(entryById)
+    const isLiked: Boolean = req.session.likedEntries?.includes(`${id}`) || false
+    res.send({entry: entryById, hasLiked: isLiked})
 }
 
 const getFeatured = async (req: Request, res: Response) => {
     const featured = await PortfolioItem.find({}, 'name summary langs position thumbnail').sort({ position: 1}).limit(3)
     res.send(featured)
 }
+
 const visitEntry = async (req: Request, res: Response) => {
     const id = req.params.id
     const visited = await PortfolioItem.findByIdAndUpdate(id, { $inc: {visits: 1} })
@@ -26,12 +28,18 @@ const visitEntry = async (req: Request, res: Response) => {
     }
     res.sendStatus(200)
 }
+
 const likeEntry = async (req: Request, res: Response) => {
     const id = req.params.id
     const liked = await PortfolioItem.findByIdAndUpdate(id, { $inc: {likes: 1} })
     if(!liked){
         // ADD ERROR CAT AND MNG LATER
         return res.sendStatus(400)
+    }
+    if (req.session.likedEntries) {
+        req.session.likedEntries = [ ...req.session.likedEntries, `${id}` ]
+    } else {
+        req.session.likedEntries = [`${id}`]
     }
     res.sendStatus(200)
 }
