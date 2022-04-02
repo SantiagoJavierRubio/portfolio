@@ -11,7 +11,11 @@ const Featured = () => {
     const [entries, setEntries] = useState([null, null, null])
     const getFeaturedEntries = async() => {
         const res = await axios.get('/api/featured')
-        if(res.data) setEntries(res.data)
+        if(res.data) {
+            setEntries(res.data)
+        } else {
+            setTimeout(getFeaturedEntries, 5000)
+        }
     }
     useEffect(() => {
        getFeaturedEntries()
