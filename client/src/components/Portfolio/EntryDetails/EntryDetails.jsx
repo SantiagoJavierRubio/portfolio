@@ -22,7 +22,8 @@ const EntryDetails = () => {
     const getEntry = async () => {
         const res = await axios.get(`/api/entries/${entryId}`)
         if(res) {
-            setEntry({ ...res.data, date: new Date(res.data.date) })
+            setEntry({ ...res.data.entry, date: new Date(res.data.entry.date) })
+            setLiked(res.data.hasLiked)
         }
     }
     const setVisited = () => {

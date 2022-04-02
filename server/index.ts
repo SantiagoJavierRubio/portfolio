@@ -6,6 +6,12 @@ import mongoose, { ConnectOptions } from 'mongoose'
 import path from 'path'
 import "dotenv/config"
 
+declare module 'express-session' {
+    interface SessionData {
+        likedEntries: string[]
+    }
+  }
+
 const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
