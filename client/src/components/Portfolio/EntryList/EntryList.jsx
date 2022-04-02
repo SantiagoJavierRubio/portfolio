@@ -10,7 +10,7 @@ import './entryList.css'
 const EntryList = () => {
 
     // Data fetching
-    const [entries, setEntries] = useState([])
+    const [entries, setEntries] = useState([null, null, null, null])
     const getEntries = async() => {
         const res = await axios.get('/api/entries')
         if(res.data) setEntries(res.data)
@@ -68,8 +68,8 @@ const EntryList = () => {
                 </div>
             </div>
             <div className="list">
-                {entries && filteredEntries.map(entry => {
-                    return <PortfolioCard entry={entry} key={entry._id}/>
+                {entries && filteredEntries.map((entry, index) => {
+                    return <PortfolioCard entry={entry} key={entry?._id || index} />
                 })}
             </div>
         </div>

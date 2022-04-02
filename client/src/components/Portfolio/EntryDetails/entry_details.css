@@ -51,7 +51,7 @@
     justify-content: flex-start;
     align-items: center;
 }
-.resource i {
+.resource i, .resource svg {
     font-size: 1.5rem;
     color: rgb(173, 113, 164);
     margin-right: .4rem;
@@ -97,6 +97,7 @@
 #card-actions {
     justify-content: space-between;
     align-items: center;
+    margin-top: .5rem;
 }
 #actions-buttons {
     display: flex;

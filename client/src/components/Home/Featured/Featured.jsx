@@ -8,7 +8,7 @@ import './featured.css'
 
 
 const Featured = () => {
-    const [entries, setEntries] = useState([])
+    const [entries, setEntries] = useState([null, null, null])
     const getFeaturedEntries = async() => {
         const res = await axios.get('/api/featured')
         if(res.data) setEntries(res.data)
@@ -25,8 +25,8 @@ const Featured = () => {
     return(
         <>
         <section id="featured">
-            {entries && entries.map(entry => {
-                return <PortfolioCard entry={entry} key={entry._id}/>
+            {entries && entries.map((entry, index) => {
+                return <PortfolioCard entry={entry} key={entry?._id || index}/>
             })}
         </section>
         <div id="goToPortfolio">

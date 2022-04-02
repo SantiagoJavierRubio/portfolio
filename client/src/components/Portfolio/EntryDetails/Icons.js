@@ -1,15 +1,20 @@
 const icons = {
-    html: <i class="devicon-html5-plain" />,
-    css: <i class="devicon-css3-plain" />,
-    js: <i class="devicon-javascript-plain" />,
-    ts: <i class="devicon-typescript-plain" />,
-    react: <i class="devicon-react-original" />,
-    redux: <i class="devicon-redux-plain" />,
-    node: <i class="devicon-nodejs-plain" />,
-    express: <i class="devicon-express-original" />,
-    mongo: <i class="devicon-mongodb-plain" />,
-    material: <i class="devicon-materialui-plain" />,
-    mysql: <i class="devicon-mysql-plain" />,
+    html: <i className="devicon-html5-plain" />,
+    css: <i className="devicon-css3-plain" />,
+    js: <i className="devicon-javascript-plain" />,
+    ts: <i className="devicon-typescript-plain" />,
+    react: <i className="devicon-react-original" />,
+    redux: <i className="devicon-redux-plain" />,
+    node: <i className="devicon-nodejs-plain" />,
+    express: <i className="devicon-express-original" />,
+    mongo: <i className="devicon-mongodb-plain" />,
+    material: <i className="devicon-materialui-plain" />,
+    mysql: <i className="devicon-mysql-plain" />,
+    firebase: <i className="devicon-firebase-plain" />,
+    handlebars: <i class="devicon-handlebars-plain" />,
+    socketio: <i class="devicon-socketio-original" />,  
+  
+  
 }
 
 export const getIcon = (resource) => {
@@ -34,8 +39,8 @@ export const getIcon = (resource) => {
         case 'express':
         case 'express-session':
             return icons.express
-            case 'mysql':
-                case 'mariadb':
+        case 'mysql':
+        case 'mariadb':
                     return icons.mysql
         case 'mongodb':
         case 'mongoose':
@@ -43,9 +48,7 @@ export const getIcon = (resource) => {
         case 'material':
             return icons.material
         default:
-            return <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-                        <path fill="currentColor" d="M17,13H7V11H17M19,3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3Z" />
-                    </svg>
+            return <i />
 
     }
 }
