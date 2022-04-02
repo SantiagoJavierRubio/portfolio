@@ -7,7 +7,7 @@ const PortfolioCard = ({entry}) => {
     const dispatch = useDispatch()
 
     const handleGoToEntry = () => {
-        dispatch(setView(pages.PORTFOLIO, entry.id))
+        dispatch(setView(pages.PORTFOLIO, entry._id))
     }
     return(
         <Card className="entryCard" style={{ backgroundColor: 'rgba(9, 10, 10, 0.80)'}}>

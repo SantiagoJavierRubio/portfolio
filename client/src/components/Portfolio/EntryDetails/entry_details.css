@@ -1,0 +1,107 @@
+#portfolio-item-details {
+    margin-top: 10%;
+    width: 100%;
+    min-height: 115vh;
+}
+#like-btn {
+    border: none;
+    background-color: transparent;
+    color: red;
+    cursor: pointer;
+    margin-left: 1%;
+}
+.basicInfo h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    color: rgb(173, 113, 164);
+}
+.basicInfo p {
+    color: rgb(178, 205, 210);
+}
+#portfolio-item-date {
+    font-size: .85rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+#portfolio-item-description {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: 1rem 5%;
+    padding: 0;
+    text-align: left;
+    line-height: 2rem;
+}
+#resources-title {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1.5rem 5%;
+    padding: 0;
+}
+#resource-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin: 0 0 5% 2rem;
+}
+.resource {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.resource i {
+    font-size: 1.5rem;
+    color: rgb(173, 113, 164);
+    margin-right: .4rem;
+    margin-left: 1rem;
+}
+.resource span {
+    color: #fff;
+    text-align: left;
+}
+#portfolio-item-details a {
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    transition: box-shadow 0.2s ease-out;
+}
+#portfolio-item-details a:hover {
+    box-shadow: 1px 2px 8px rgba(0,0,0,0.7);
+    transition: none;
+}
+#portfolio-item-details a:active {
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+#webpage-btn {
+    background-color: rgb(7, 114, 85);
+}
+#git-btn {
+    background-color: rgb(77, 66, 105);
+}
+#portfolio-item-details iframe {
+    width: 95%;
+    height: 100%;
+    min-height: 70vh;
+    border: none;
+    padding: 0;
+    background-color: #fff;
+    border-radius: 12px;
+}
+#card-actions {
+    justify-content: space-between;
+    align-items: center;
+}
+#actions-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    margin-right: 1%;
+}
