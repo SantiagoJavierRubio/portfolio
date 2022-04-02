@@ -10,7 +10,7 @@
 #featured-bottom {
     top: 100%;
 }
-#featured .entryCard {
+#featured .entryCard, #featured .cardSkeleton {
     max-width: 30%;
 }
 #goToPortfolio{
