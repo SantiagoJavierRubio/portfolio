@@ -10,3 +10,21 @@ footer {
     z-index: -1;
     margin-top: -8%;
 }
+.socials {
+    margin-bottom: 2rem;
+    width: 100%;
+}
+.socials a {
+    text-decoration: none;
+}
+.socials i {
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    margin: 1rem;
+}
+footer p {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+}

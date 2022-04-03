@@ -44,7 +44,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
-    margin: 0 0 5% 2rem;
+    margin: 0 0 5% 5%;
 }
 .resource {
     display: flex;

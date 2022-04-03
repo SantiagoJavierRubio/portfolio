@@ -19,7 +19,7 @@ const PortfolioCard = ({entry}) => {
         img.src = entry.thumbnail
         img.loading = 'lazy'
         img.onload = () => setLoaded(img)
-    }, [entry])
+    }, [])
 
     return(
         <>
