@@ -55,3 +55,22 @@
     font-size: .75rem;
     font-weight: 500;
 }
+
+@media screen and (max-width: 768px) {
+    #questions {
+        width: 99%;
+        gap: 1rem;
+        justify-content: space-around;
+        margin: 0 .5rem;
+    }
+    #questions h6 {
+        font-size: 1rem;
+    }
+    #contact-title {
+        font-size: 1.2rem;
+    }
+    #contact form {
+        width: 90%;
+        max-width: 35rem;
+    }
+}

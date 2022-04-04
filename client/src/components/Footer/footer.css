@@ -5,6 +5,7 @@ footer {
     align-items: center;
     padding: 2rem;
     aspect-ratio: 3/1 !important;
+    width: auto !important;
 }
 #footer {
     z-index: -1;
@@ -28,3 +29,18 @@ footer p {
     font-size: 1rem;
     font-weight: 500;
 }
+
+
+@media screen and (max-width: 768px) {
+    footer {
+        padding: 12% 0 0 0;
+        aspect-ratio: 4/1 !important;
+    }
+    .socials i {
+        font-size: 1.6rem;
+    }
+    footer p {
+        margin-bottom: 7%;
+    }
+}
+    

@@ -5,6 +5,8 @@ import { TextField } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import InputAdornment from '@mui/material/InputAdornment'
 import SearchIcon from '@mui/icons-material/Search'
+import SearchModal from './SearchModal/SearchModal'
+import useWindowDimensions from '././../../../Hooks/useWindowDimensions'
 import './entryList.css'
 
 const EntryList = () => {
@@ -38,6 +40,7 @@ const EntryList = () => {
         }
     }, [search, setFilteredEntries, entries])
 
+    // Custom components
     const CustomTextField = styled(TextField)({
         backgroundColor: 'whitesmoke',
         borderRadius: '25px',
@@ -48,29 +51,49 @@ const EntryList = () => {
         },
     })
 
+    // Window dimensions handlers
+    const [useModal, setUseModal] = useState(false)
+    const { width } = useWindowDimensions()
+    useEffect(() => {
+        if(width < 768 && !useModal) setUseModal(true)
+        else if(width >= 768 && useModal) setUseModal(false)
+    }, [width])
+
     return(
         <div id="entry-list">
             <div className="aboutList">
                 <h5>These are my web-dev projects:</h5>
                 <div className="searchBar">
-                    <CustomTextField 
-                        variant="outlined"
-                        placeholder="Search..."
-                        InputProps={{
-                            startAdornment: (<InputAdornment position="start">
-                                <SearchIcon />
-                            </InputAdornment>)
-                        }}
-                        onChange={e => setSearch(e.target.value)}
-                        value={search}
-                        autoFocus
-                    />
+                    { useModal ? 
+                        <SearchModal setSearch={setSearch} search={search}/>
+                        :
+                        <CustomTextField 
+                            variant="outlined"
+                            placeholder="Search..."
+                            InputProps={{
+                                startAdornment: (<InputAdornment position="start">
+                                    <SearchIcon />
+                                </InputAdornment>)
+                            }}
+                            onChange={e => setSearch(e.target.value)}
+                            value={search}
+                            autoFocus
+                        />
+                    }
                 </div>
             </div>
+            {(search && useModal) && 
+            <div id="search-params">
+                <button onClick={() => setSearch('')} id="clear-search-btn">
+                    {search} X
+                </button>
+            </div>
+            }
             <div className="list">
                 {entries && filteredEntries.map((entry, index) => {
                     return <PortfolioCard entry={entry} key={entry?._id || index} />
                 })}
+                {(!filteredEntries || filteredEntries.length === 0) && <h5 id="none-msg">No projects found</h5>}
             </div>
         </div>
     )
