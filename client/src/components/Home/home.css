@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    max-width: 100vw;
 }
 section {
     position: relative;
@@ -33,4 +34,11 @@ section {
 #contact-bottom {
     z-index: -4;
     margin-top: -7%;
+}
+
+@media screen and (max-width: 768px) {
+    #featured-title {
+        font-size: 1.15rem;
+    }
+    
 }

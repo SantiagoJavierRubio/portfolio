@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setView, pages } from '../../redux/ducks/views.js'
 import { Avatar } from '@mui/material'
+import useWindowDimensions from '../../Hooks/useWindowDimensions'
 import Menu from './Menu/Menu'
 import './navbar.css'
 
@@ -9,8 +10,15 @@ const NavBar = ({ scrollToContact }) => {
 
     const [miniature, setMiniature] = useState(false)
     const dispatch = useDispatch()
+
+    const { width } = useWindowDimensions()
+    useEffect(() => {
+        if(width < 768 && !miniature) setMiniature(true)
+    }, [width])
+
     useEffect(() => {
         const checkScroll = () => {
+            if(width < 768) return
             if(window.scrollY > 35 && !miniature) setMiniature(true)
             if(window.scrollY < 35 && miniature) setMiniature(false)
         }

@@ -20,3 +20,18 @@
     font-weight: 700;
     margin: 0
 }
+
+@media screen and (max-width: 768px) {
+    #intro {
+        margin-top: 10%;
+    }
+    #intro-titles {
+        margin-left: 2%;
+    }
+    #intro-titles h2 {
+        font-size: 1.5rem;
+    }
+    #intro-titles h3 {
+        font-size: 2.6rem;
+    }
+}
