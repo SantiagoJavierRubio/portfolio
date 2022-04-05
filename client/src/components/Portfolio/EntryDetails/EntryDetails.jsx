@@ -68,7 +68,7 @@ const EntryDetails = () => {
                             return(
                                 <div key={lang} className="resource">
                                         {getIcon(lang)}
-                                        <span className="resource-name">{lang}</span>
+                                        <span className="resourceName">{lang}</span>
                                 </div>
                             )
                         })}

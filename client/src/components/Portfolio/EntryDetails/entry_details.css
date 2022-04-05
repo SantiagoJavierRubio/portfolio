@@ -57,7 +57,7 @@
     margin-right: .4rem;
     margin-left: 1rem;
 }
-.resource span {
+.resourceName {
     color: #fff;
     text-align: left;
 }
@@ -105,4 +105,22 @@
     gap: 1rem;
     align-items: center;
     margin-right: 1%;
+}
+
+@media screen and (max-width: 768px) {
+    .basicInfo h1 {
+        font-size: 2.7rem;
+    }
+    #portfolio-item-description {
+        font-size: 1rem;
+    }
+    .resourceName, #resources-title {
+        font-size: .85rem;
+    }
+    .resource i, .resource svg {
+        font-size: 1rem;
+    }
+    #portfolio-item-details iframe {
+        width: 100%;
+    }
 }
