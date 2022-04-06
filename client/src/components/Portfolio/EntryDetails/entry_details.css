@@ -93,6 +93,7 @@
     padding: 0;
     background-color: #fff;
     border-radius: 12px;
+    z-index: 1;
 }
 #card-actions {
     justify-content: space-between;
@@ -122,5 +123,8 @@
     }
     #portfolio-item-details iframe {
         width: 100%;
+    }
+    #card-actions {
+        margin: 0;
     }
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { SpeedDial, SpeedDialAction } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import WorkIcon from '@mui/icons-material/Work'
@@ -17,8 +18,10 @@ const optionStyle = {
 
 const Menu = ({ scrollToContact }) => {
 
+    const [open, setOpen] = useState(false)
     const dispatch = useDispatch()
     const handleNavigation = (direction) => {
+        setOpen(false)
         if(direction === 'contact'){
             dispatch(setView(pages.HOME))
             return scrollToContact()
@@ -41,7 +44,10 @@ const Menu = ({ scrollToContact }) => {
                         }
                 }}
             }
-            style={{position: 'absolute', top: 0, right: '.5rem'}}
+            style={{position: 'absolute', top: 0, right: '.5rem', zIndex: '10000'}}
+            open={open}
+            onClose={() => setOpen(false)} 
+            onClick={() => setOpen(!open)}
         >
             <SpeedDialAction 
                 icon={<WorkIcon />}

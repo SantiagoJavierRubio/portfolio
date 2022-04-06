@@ -13,8 +13,6 @@ const icons = {
     firebase: <i className="devicon-firebase-plain" />,
     handlebars: <i class="devicon-handlebars-plain" />,
     socketio: <i class="devicon-socketio-original" />,  
-  
-  
 }
 
 export const getIcon = (resource) => {
