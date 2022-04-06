@@ -1,0 +1,23 @@
+@keyframes fade-in {
+    0% {
+        opacity: 1;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.fadingIcon {
+    position: relative;
+    height: 1.2rem;
+}
+.fadingIcon i {
+    position: absolute;
+    color: rgb(173, 113, 164);
+    font-size: 2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

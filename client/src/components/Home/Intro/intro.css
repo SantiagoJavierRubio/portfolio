@@ -1,3 +1,13 @@
+@keyframes appear {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(20%);
+    }
+}
 #intro {
     margin-top: 15vh;
     justify-content: flex-start;
@@ -5,7 +15,7 @@
 #intro-titles {
     margin-top: 2.5rem;
     text-align: left;
-    margin-left: 15%;
+    margin-left: 10%;
 }
 #intro-titles h2 {
     color: rgb(173, 113, 164);
@@ -20,6 +30,12 @@
     font-weight: 700;
     margin: 0
 }
+#front-img {
+    width: 25%;
+    margin: 0 10% 0 0;
+    transform: translateY(20%);
+    animation: appear 1s ease-in-out;
+}
 
 @media screen and (max-width: 768px) {
     #intro {
@@ -33,5 +49,8 @@
     }
     #intro-titles h3 {
         font-size: 2.6rem;
+    }
+    #front-img {
+        display: none;
     }
 }
