@@ -20,7 +20,7 @@ section {
     font-size: 1.85rem;
     font-weight: 500;
     position: absolute;
-    bottom: 15%;
+    bottom: 10%;
     left: 1.5rem;
 }
 #featured-bottom {
@@ -39,6 +39,7 @@ section {
 @media screen and (max-width: 768px) {
     #featured-title {
         font-size: 1.15rem;
+        bottom: -1%;
+        left: 1%;
     }
-    
 }

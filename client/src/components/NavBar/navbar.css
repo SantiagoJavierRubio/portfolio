@@ -28,6 +28,9 @@
     height: 2.5rem;
     align-self: flex-start;
 }
+.miniNavBar .profile #profile-pic {
+    margin-top: .7rem;
+}
 .miniNavBar .profile h1 {
     color: transparent;
     user-select: none;

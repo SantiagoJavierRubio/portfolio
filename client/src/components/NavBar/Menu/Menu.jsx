@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { SpeedDial, SpeedDialAction } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
 import WorkIcon from '@mui/icons-material/Work'
@@ -6,6 +6,7 @@ import InfoIcon from '@mui/icons-material/Info'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
 import { useDispatch } from 'react-redux'
 import { setView, pages } from '../../../redux/ducks/views.js'
+import useWindowDimensions from '../../../Hooks/useWindowDimensions'
 import './menu.css'
 
 const optionStyle = {
@@ -28,6 +29,14 @@ const Menu = ({ scrollToContact }) => {
         }
         dispatch(setView(direction))
     }
+
+    const { width } = useWindowDimensions()
+    const [minimal, setMinimal] = useState(false)
+    useEffect(() => {
+        if(width < 768 && !minimal) setMinimal(true)
+        else if(width >= 768 && minimal) setMinimal(false)
+    }, [width])
+
     return(
         <SpeedDial
             ariaLabel='Menu'
@@ -35,6 +44,8 @@ const Menu = ({ scrollToContact }) => {
             direction="down"
             FabProps={
                 {sx: {  
+                        width: minimal ? '3rem' : '3.9rem',
+                        height: minimal ? '3rem' : '3.9rem',
                         boxShadow: 'none',
                         bgcolor: 'transparent',
                         color: 'inherit',

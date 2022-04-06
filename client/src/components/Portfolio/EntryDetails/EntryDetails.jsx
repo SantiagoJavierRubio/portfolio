@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { useSelector } from "react-redux"
 import axios from 'axios'
 import { Card, CardActions, CardContent } from '@mui/material'
@@ -44,6 +44,17 @@ const EntryDetails = () => {
         setVisited()
     }, [entryId])
 
+    const topRef = useRef(null)
+    const scrollToTop = () => {
+        if(!topRef.current) {
+          return setTimeout(scrollToTop, 1000)
+        }
+        topRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+    useEffect(() => {
+        scrollToTop()
+    }, [topRef])
+
     const handleLike = async () => {
         if(hasLiked) return
         const res = await axios.put(`/api/like/${entryId}`)
@@ -55,7 +66,7 @@ const EntryDetails = () => {
     }
 
     return(
-        <div id="portfolio-item-details">
+        <div id="portfolio-item-details" ref={topRef}>
             {entry && 
             (<>
                 <div className='basicInfo'>
