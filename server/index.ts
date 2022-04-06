@@ -1,4 +1,4 @@
-import express, { Application } from 'express'
+import express, { Application, Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import session from 'express-session'
 import MongoDBStore, { MongoDBSessionOptions } from 'connect-mongodb-session'
@@ -42,20 +42,31 @@ app.use(session({
     saveUninitialized: false
 }))
 app.set('trust proxy', 1)
-app.use(cors({ credentials: true, origin: 'localhost' }))
+app.use(cors({ credentials: true, origin: 'localhost' })) // REMOVE CORS ON DEPLOYMENT
 
 app.get('/', (req, res) => {
+    // CHANGE TO SERVE REACT APP
     res.send("Welcome to my server!")
 })
-app.post('/', (req, res) => {
-    res.status(200).json(req.body)
-})
+// app.post('/', (req, res) => {
+//     res.status(200).json(req.body)   ????? borrar?
+// })
 app.set('views', './public/views')
 app.set('view engine', 'ejs')
 import adminRoutes from './routes/adminRoutes'
 app.use('/admin', adminRoutes)
 import apiRoutes from './routes/apiRoutes'
 app.use('/api', apiRoutes)
+
+app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+    console.error(err)
+    res.status(500).json({ error: err.message })
+})
+app.use((req: Request, res: Response, next: NextFunction) => {
+    if(req.method && req.method !== 'GET') return res.status(404).json({ error: 'Route not found' })
+    res.redirect('/')
+})
+
 
 const PORT = process.env.PORT || 8080
 const MONGO_OPTIONS = { useNewUrlParser: true, useUnifiedTopology: true }
