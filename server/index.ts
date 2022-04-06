@@ -15,8 +15,9 @@ declare module 'express-session' {
 const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, "build")));
-app.use(express.static(path.join(__dirname, 'public')))
+process.env.PWD = process.cwd()
+app.use(express.static(path.join(process.env.PWD, 'client/build')));
+app.use(express.static(path.join(process.env.PWD, 'public')))
 
 const MONGOSTORE = MongoDBStore(session)
 const store = new MONGOSTORE(
@@ -46,7 +47,7 @@ app.set('trust proxy', 1)
 // app.use(cors({ credentials: true, origin: 'localhost' })) // REMOVE CORS ON DEPLOYMENT
 
 app.get('/', (req: Request, res: Response, next: NextFunction) => {
-    res.sendFile(path.join(__dirname, "build", "index.html"))
+    res.sendFile(path.join(__dirname, "..", "/client/build/index.html"))
 })
 
 app.set('views', './public/views')
