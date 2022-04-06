@@ -15,7 +15,8 @@ declare module 'express-session' {
 const app: Application = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static(path.join(__dirname, '/public')))
+app.use(express.static(path.join(__dirname, "build")));
+app.use(express.static(path.join(__dirname, 'public')))
 
 const MONGOSTORE = MongoDBStore(session)
 const store = new MONGOSTORE(
@@ -42,15 +43,12 @@ app.use(session({
     saveUninitialized: false
 }))
 app.set('trust proxy', 1)
-app.use(cors({ credentials: true, origin: 'localhost' })) // REMOVE CORS ON DEPLOYMENT
+// app.use(cors({ credentials: true, origin: 'localhost' })) // REMOVE CORS ON DEPLOYMENT
 
-app.get('/', (req, res) => {
-    // CHANGE TO SERVE REACT APP
-    res.send("Welcome to my server!")
+app.get('/', (req: Request, res: Response, next: NextFunction) => {
+    res.sendFile(path.join(__dirname, "build", "index.html"))
 })
-// app.post('/', (req, res) => {
-//     res.status(200).json(req.body)   ????? borrar?
-// })
+
 app.set('views', './public/views')
 app.set('view engine', 'ejs')
 import adminRoutes from './routes/adminRoutes'
