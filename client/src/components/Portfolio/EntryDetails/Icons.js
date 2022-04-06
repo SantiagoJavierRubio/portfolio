@@ -12,7 +12,8 @@ const icons = {
     mysql: <i className="devicon-mysql-plain" />,
     firebase: <i className="devicon-firebase-plain" />,
     handlebars: <i class="devicon-handlebars-plain" />,
-    socketio: <i class="devicon-socketio-original" />,  
+    socketio: <i class="devicon-socketio-original" />,
+    github: <i class="devicon-github-original" />,
 }
 
 export const getIcon = (resource) => {
@@ -45,6 +46,10 @@ export const getIcon = (resource) => {
             return icons.mongo
         case 'material':
             return icons.material
+        case 'github':
+            return icons.github
+        case 'firebase':
+            return icons.firebase
         default:
             return <i />
 
