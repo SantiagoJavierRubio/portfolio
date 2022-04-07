@@ -9,12 +9,14 @@
     font-size: 3rem;
     font-weight: 700;
     color: rgb(173, 113, 164);
+    line-height: 1.5;
 }
 #about-text p {
     font-size: 2rem;
     color: rgb(178, 205, 210);
     text-align: left;
-    margin-left: 2rem;
+    line-height: 1.5;
+    margin: 1rem 1rem 1rem 2rem;
 }
 #about-text i {
     color: rgb(173, 113, 164);

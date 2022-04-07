@@ -1,6 +1,8 @@
 .cardTitle {
     font-size: 1.7rem;
-    margin-top: 1rem;
+    margin: 1rem;
+    line-height: 1;
+    font-weight: 700;
     padding: 0;
     color: whitesmoke;
     position: relative;

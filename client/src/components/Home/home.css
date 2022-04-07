@@ -41,5 +41,6 @@ section {
         font-size: 1.15rem;
         bottom: -1%;
         left: 1%;
+        line-height: 1.5;
     }
 }

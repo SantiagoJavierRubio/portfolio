@@ -18,13 +18,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    outline: none;
 }
 #search-modal form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: .5rem
+    gap: .5rem;
+    outline: none;
 }
 #search-modal input {
     border-radius: 8px;

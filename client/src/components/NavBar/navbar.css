@@ -51,6 +51,7 @@
 #profile-pic {
     height: 90%;
     width: auto;
+    aspect-ratio: 1;
     cursor: pointer;
 }
 .sections {

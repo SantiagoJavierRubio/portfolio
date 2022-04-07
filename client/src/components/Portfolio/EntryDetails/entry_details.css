@@ -13,10 +13,13 @@
 .basicInfo h1 {
     font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 0.2rem;
+    margin: 1rem 1rem 0.2rem 1rem;
+    line-height: 1.5;
     color: rgb(173, 113, 164);
 }
 .basicInfo p {
+    margin: 1rem;
+    line-height: 1;
     color: rgb(178, 205, 210);
 }
 #portfolio-item-date {
@@ -39,6 +42,7 @@
     font-weight: 700;
     margin: 1.5rem 5%;
     padding: 0;
+    line-height: 1;
 }
 #resource-list {
     display: grid;
@@ -60,6 +64,8 @@
 .resourceName {
     color: #fff;
     text-align: left;
+    margin: .2rem;
+    line-height: 1;
 }
 #portfolio-item-details a {
     border-radius: 12px;
