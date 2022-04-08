@@ -44,7 +44,7 @@ export const getIcon = (resource) => {
         case 'mongodb':
         case 'mongoose':
             return icons.mongo
-        case 'material':
+        case 'materialui':
             return icons.material
         case 'github':
             return icons.github

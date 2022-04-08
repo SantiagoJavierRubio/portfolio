@@ -47,6 +47,7 @@
 .profile h1 {
     font-size: 1.3rem;
     transition: all .5s ease-in-out;
+    font-weight: 500;
 }
 #profile-pic {
     height: 90%;
