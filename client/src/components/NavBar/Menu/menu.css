@@ -3,8 +3,9 @@
     padding: 0;
 }
 .MuiSpeedDialAction-staticTooltipLabel {
-    background-color: rgba(9, 10, 10, .9) !important;
+    background-color: rgba(9, 10, 10, .99) !important;
     font-size: 1.1rem !important;
     color: #fff !important;
     margin: 0 !important;
+    box-shadow: 0px 0px 4px 4px rgba(255,255,255, 0.1) !important;
 }
