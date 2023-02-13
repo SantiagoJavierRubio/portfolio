@@ -1,0 +1,7 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "eslint.validate": ["react"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true 
+    }
+}

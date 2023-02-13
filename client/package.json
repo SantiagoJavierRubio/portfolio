@@ -4,12 +4,12 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "next": "latest",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.2",
     "@mui/material": "^5.4.3",
     "axios": "^0.26.0",
+    "next": "latest",
     "react": "latest",
     "react-dom": "latest",
     "react-redux": "^7.2.6",
@@ -18,13 +18,8 @@
   "scripts": {
     "start": "next start",
     "build": "next build",
-    "dev": "next dev"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "dev": "next dev",
+    "lint": "next lint"
   },
   "browserslist": {
     "production": [
@@ -37,5 +32,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "eslint": "^8.34.0",
+    "eslint-config-next": "^13.1.6",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.4"
+  },
+  "main": "index.js",
+  "author": "SJR",
+  "license": "MIT"
 }
