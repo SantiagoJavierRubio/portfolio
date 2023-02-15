@@ -1,8 +1,9 @@
 import clientPromise from '../../lib/mongodb'
+import Layout from '../../components/Layout'
 
 export default function Portfolio({ entries }) {
   console.log(entries)
-  return <div>portfolio</div>
+  return <Layout>portfolio</Layout>
 }
 
 export async function getServerSideProps() {
