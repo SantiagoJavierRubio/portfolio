@@ -1,7 +1,7 @@
 import Layout from '../components/Layout'
 import FadingIcon from '../components/FadingIcon'
 
-export default function about() {
+export default function About() {
   return (
     <Layout>
       <div className="mb-8 h-full">
