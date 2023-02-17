@@ -22,7 +22,7 @@ const CustomTextField = styled(TextField)({
   }
 })
 
-const Contact = ({ contactRef }) => {
+const Contact = () => {
   const [formData, setFormData] = useState({
     name: undefined,
     email: undefined,
@@ -98,7 +98,7 @@ const Contact = ({ contactRef }) => {
   }
 
   return (
-    <section id="contact" ref={contactRef}>
+    <section id="contact">
       <div id="questions">
         <h6>Don&apos;t have a website yet?</h6>
         <h6>Looking for an upgrade on your existing web?</h6>
