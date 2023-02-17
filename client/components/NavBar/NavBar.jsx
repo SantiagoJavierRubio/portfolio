@@ -1,5 +1,5 @@
 import { Avatar } from '@mui/material'
-import useWindowScroll from '../../Hooks/useWindowScroll'
+import useWindowScroll from '../../hooks/useWindowScroll'
 import Menu from './Menu/Menu'
 import Link from 'next/link'
 

@@ -6,7 +6,7 @@ import { styled } from '@mui/material/styles'
 import InputAdornment from '@mui/material/InputAdornment'
 import SearchIcon from '@mui/icons-material/Search'
 import SearchModal from './SearchModal/SearchModal'
-import useWindowDimensions from '././../../../Hooks/useWindowDimensions'
+import useWindowDimensions from '././../../../hooks/useWindowDimensions'
 import './entryList.css'
 
 const EntryList = () => {
