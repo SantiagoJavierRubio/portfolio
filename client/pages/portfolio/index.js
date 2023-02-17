@@ -1,9 +1,17 @@
 import clientPromise from '../../lib/mongodb'
 import Layout from '../../components/Layout'
+import PortfolioCard from '../../components/PortfolioCard'
 
 export default function Portfolio({ entries }) {
-  console.log(entries)
-  return <Layout>portfolio</Layout>
+  return (
+    <Layout>
+      <div className="grid grid-cols-3 gap-4">
+        {entries.map(entry => {
+          return <PortfolioCard entry={entry} key={entry._id} />
+        })}
+      </div>
+    </Layout>
+  )
 }
 
 export async function getServerSideProps() {
