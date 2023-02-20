@@ -9,7 +9,7 @@ export default function Layout({ children }) {
         <title>Santiago Rubio - Web Dev</title>
       </Head>
       <NavBar />
-      <main className="mt-16 h-screen max-w-full bg-stone-900 text-center">
+      <main className="mt-16 min-h-screen max-w-full bg-stone-900 text-center">
         {children}
       </main>
       <Footer />

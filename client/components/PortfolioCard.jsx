@@ -13,14 +13,14 @@ const PortfolioCard = ({ entry, ...props }) => {
       {!entry && (
         <Skeleton
           variant="rect"
-          className="w-full max-w-lg grow"
+          className="relative aspect-video select-none rounded-lg pt-2"
           animation="wave"
           width="100%"
-          height="500px"
+          height="100%"
         />
       )}
       {entry && (
-        <div className="group relative aspect-video cursor-pointer select-none rounded-lg bg-teal-900/50 pt-2">
+        <div className="group relative aspect-video cursor-pointer select-none rounded-lg bg-gradient-to-b from-teal-600/70 pt-2">
           <Link href={`/portfolio/${entry._id}`}>
             <h3 className="relative m-4 p-0 text-base font-bold text-stone-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-sm after:bg-stone-200 after:transition-transform after:content-[''] group-hover:after:origin-bottom-left group-hover:after:scale-x-100 md:text-lg">
               {entry.name}
