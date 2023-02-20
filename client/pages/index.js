@@ -66,7 +66,7 @@ export default function Home({ featured }) {
             <h6 className="text-center text-lg font-bold text-teal-500">
               Don&apos;t have a website yet?
             </h6>
-            <h6 className="-translate-y-12 text-center text-lg font-bold text-teal-500">
+            <h6 className="-translate-y-12 translate-x-4 text-center text-lg font-bold text-teal-500">
               Looking for an upgrade on your existing web?
             </h6>
             <h6 className="text-center text-lg font-bold text-teal-500">
@@ -75,7 +75,7 @@ export default function Home({ featured }) {
           </div>
           <h6
             id="contact-title"
-            className="text-center text-xl font-bold text-purple-500"
+            className="mb-2 mt-4 text-center text-xl font-bold text-purple-500 underline"
           >
             Contact me
           </h6>
@@ -137,20 +137,20 @@ const ContactForm = () => {
   const renderButtonStyle = () => {
     switch (sendStatus) {
       case SENDING_STATUS.NULL:
-        return 'sm:px-20 cursor-pointer bg-purple-700'
+        return 'sm:px-20 cursor-pointer bg-purple-700 disabled:bg-gray-400'
       case SENDING_STATUS.SENDING:
-        return 'sm:px-4 cursor-default bg-purple-700'
+        return 'sm:px-4 cursor-default disabled:bg-purple-700'
       case SENDING_STATUS.SENT_OK:
-        return 'sm:px-4 cursor-default bg-green-600'
+        return 'sm:px-4 cursor-default disabled:bg-green-600'
       case SENDING_STATUS.SENT_ERROR:
       default:
-        return 'sm:px-20 cursor-default bg-red-400'
+        return 'sm:px-20 cursor-default disabled:bg-red-400'
     }
   }
   return (
     <form
       onSubmit={handleSubmit}
-      className="m-auto flex w-full max-w-xl flex-col gap-4 p-6"
+      className="m-auto flex w-full max-w-xl flex-col gap-4 px-6"
     >
       <label htmlFor="name" className="hidden">
         Name

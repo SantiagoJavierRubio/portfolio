@@ -36,7 +36,7 @@ const NavBar = () => {
         <Link
           className={` flex ${
             scroll > 35 ? 'ml-1 -mt-2 opacity-60' : 'ml-4 opacity-100'
-          } h-8 items-center justify-center gap-4 transition-all`}
+          } h-8 items-center justify-center gap-4 transition-all hover:opacity-100`}
           href="/"
         >
           <Avatar

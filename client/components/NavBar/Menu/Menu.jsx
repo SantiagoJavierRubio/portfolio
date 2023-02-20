@@ -37,7 +37,7 @@ const Menu = ({ forceShow = false }) => {
       <div>
         <button
           type="button"
-          className="mr-2 aspect-square w-10 rounded-full bg-transparent hover:bg-cyan-200 hover:text-black"
+          className="mr-2 aspect-square w-10 rounded-full bg-transparent hover:bg-teal-300 hover:text-black"
           onClick={handleOpen}
         >
           <MenuIcon />
