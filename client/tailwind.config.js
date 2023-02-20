@@ -6,7 +6,12 @@ module.exports = {
     './app/**/*.{js,jsx}'
   ],
   theme: {
-    extend: {}
+    extend: {
+      animation: {
+        appearBottom: 'appear-bottom 1s ease-in-out',
+        appearLeft: 'appear-left 1s ease-in-out'
+      }
+    }
   },
   plugins: []
 }

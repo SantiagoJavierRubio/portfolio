@@ -13,10 +13,10 @@ body {
     font-family: 'Merriweather Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: rgb(9, 10, 10);
     overflow-y: scroll;
     overflow-x: hidden;
     overscroll-behavior: none;
+    @apply bg-stone-900
 }
 
 code {
@@ -33,5 +33,27 @@ code {
     }
     100% {
         opacity: 0;
+    }
+}
+
+@keyframes appear-bottom {
+    0% {
+        opacity: 0;
+        transform: translateY(10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes appear-left {
+    0% {
+        opacity: 0;
+        transform: translateX(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
     }
 }
