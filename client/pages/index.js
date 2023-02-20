@@ -187,7 +187,7 @@ const ContactForm = () => {
         onChange={handleChange}
       />
       <button
-        className={`${renderButtonStyle()} m-auto w-full max-w-full rounded-md p-4 transition-all sm:w-auto`}
+        className={`${renderButtonStyle()} m-auto w-full max-w-full rounded-md p-4 transition-all enabled:hover:-translate-y-px enabled:hover:shadow-md enabled:hover:shadow-teal-500/10 enabled:active:translate-y-0 sm:w-auto`}
         type="submit"
         disabled={
           !inputs.email.trim() ||

@@ -1,3 +1,4 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 const icons = {
   html: <i className="devicon-html5-plain" />,
   css: <i className="devicon-css3-plain" />,
@@ -13,7 +14,8 @@ const icons = {
   firebase: <i className="devicon-firebase-plain" />,
   handlebars: <i className="devicon-handlebars-plain" />,
   socketio: <i className="devicon-socketio-original" />,
-  github: <i className="devicon-github-original" />
+  github: <i className="devicon-github-original" />,
+  tailwind: <i className="devicon-tailwindcss-original-wordmark" />
 }
 
 export const getIcon = resource => {
@@ -50,6 +52,8 @@ export const getIcon = resource => {
       return icons.github
     case 'firebase':
       return icons.firebase
+    case 'tailwind':
+      return icons.tailwind
     default:
       return <i />
   }

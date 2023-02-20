@@ -14,7 +14,7 @@ export default function About() {
             icons={['devicon-nodejs-plain', 'devicon-express-original']}
           />
           <p className="m-4 text-center text-xl text-stone-200">
-            I&apos;m from Argentina 🇦🇷 , currently based in Buenos Aires
+            I&apos;m from Argentina, currently based in Buenos Aires
           </p>
           <FadingIcon
             icons={['devicon-javascript-plain', 'devicon-typescript-plain']}

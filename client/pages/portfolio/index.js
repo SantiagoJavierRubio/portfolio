@@ -5,16 +5,24 @@ import PortfolioCard from '../../components/PortfolioCard'
 export default function Portfolio({ entries }) {
   return (
     <Layout>
-      <div className="grid grid-cols-3 gap-4">
-        {entries.map(entry => {
-          return <PortfolioCard entry={entry} key={entry._id} />
-        })}
-      </div>
+      <section className="m-auto h-full w-full max-w-6xl">
+        <h1 className="text-center text-5xl font-bold text-teal-500">
+          Portfolio
+        </h1>
+        <h2 className="p-4 text-left text-2xl font-bold italic text-purple-700">
+          These are some of my projects:
+        </h2>
+        <div className="grid grid-cols-3 gap-4">
+          {entries.map(entry => {
+            return <PortfolioCard entry={entry} key={entry._id} />
+          })}
+        </div>
+      </section>
     </Layout>
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   try {
     const client = await clientPromise
     const db = client.db('portfolio')
