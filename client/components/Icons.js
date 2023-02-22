@@ -15,7 +15,8 @@ const icons = {
   handlebars: <i className="devicon-handlebars-plain" />,
   socketio: <i className="devicon-socketio-original" />,
   github: <i className="devicon-github-original" />,
-  tailwind: <i className="devicon-tailwindcss-original-wordmark" />
+  tailwind: <i className="devicon-tailwindcss-original-wordmark" />,
+  next: <i className="devicon-nextjs-original" />
 }
 
 export const getIcon = resource => {
@@ -31,6 +32,8 @@ export const getIcon = resource => {
       return icons.ts
     case 'react':
       return icons.react
+    case 'next':
+      return icons.next
     case 'redux':
     case 'redux-saga':
     case 'redux-persist':

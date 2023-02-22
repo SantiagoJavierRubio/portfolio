@@ -1,15 +1,20 @@
 import axios from 'axios'
+import { useSession } from 'next-auth/react'
 import Layout from '../../components/Layout'
 import { useState } from 'react'
 import { useRouter } from 'next/router'
 import clientPromise from '../../lib/mongodb'
 import { ObjectId } from 'mongodb'
+import Loader from '../../components/Loader'
 
 export default function EditPanel({ data }) {
   const router = useRouter()
+  const { data: session, status } = useSession()
   const [inputs, setInputs] = useState(data)
   const [languages, setLanguages] = useState(data.langs)
   const [deleteValidation, setDeleteValidation] = useState('')
+
+  if (status !== 'loading' && !session) router.push('/admin')
 
   const handleRemoveEntry = () => {
     axios
@@ -70,6 +75,12 @@ export default function EditPanel({ data }) {
     setDeleteValidation(e.target.value)
   }
   const isAbleToDelete = deleteValidation !== data.name
+  if (status !== 'authenticated')
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <Loader className="aspect-square h-12 fill-stone-500 text-center text-blue-400" />
+      </div>
+    )
   return (
     <Layout>
       <section className="m-auto h-full w-full max-w-6xl">

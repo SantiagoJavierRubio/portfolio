@@ -4,13 +4,25 @@ import { useSession } from 'next-auth/react'
 import clientPromise from '../../lib/mongodb'
 import Link from 'next/link'
 import Layout from '../../components/Layout'
+import Loader from '../../components/Loader'
 
 export default function Admin({ entries }) {
   const { data: session, status } = useSession()
-  if (status === 'loading') return <div>loader</div>
+  if (status === 'loading')
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <Loader className="aspect-square h-12 fill-stone-500 text-center text-blue-400" />
+      </div>
+    )
   else if (session && status !== 'unauthenticated')
     return (
       <Layout>
+        <Link
+          className="absolute top-0 z-50 cursor-pointer text-lg font-bold text-stone-200"
+          href="/api/auth/signout"
+        >
+          Log out
+        </Link>
         <h1 className="text-5xl font-bold text-teal-500">Admin panel</h1>
         <section className="m-auto h-full w-full max-w-6xl">
           <h3 className="p-4 text-left text-xl text-purple-500 underline">
@@ -60,7 +72,22 @@ export default function Admin({ entries }) {
         </section>
       </Layout>
     )
-  else return <h1>Unauthorized</h1>
+  else
+    return (
+      <Layout>
+        <section className="m-auto h-full w-full max-w-6xl p-8">
+          <h1 className="my-16 text-3xl font-bold text-stone-400">
+            Unauthorized
+          </h1>
+          <Link
+            href="/api/auth/signin"
+            className="rounded-lg bg-purple-500 p-6 text-center font-bold text-stone-200"
+          >
+            Sign in
+          </Link>
+        </section>
+      </Layout>
+    )
 }
 
 const DEFAULT_VALUES = {
