@@ -5,7 +5,7 @@ import Image from 'next/image'
 
 const PortfolioCard = ({ entry, ...props }) => {
   const twStyle = twMerge(
-    'w-full overflow-hidden rounded-xl shrink-0',
+    'w-full overflow-hidden rounded-xl shrink-0 bg-teal-700/70',
     props.className
   )
   return (
@@ -20,7 +20,7 @@ const PortfolioCard = ({ entry, ...props }) => {
         />
       )}
       {entry && (
-        <div className="group relative aspect-video cursor-pointer select-none rounded-lg bg-gradient-to-b from-teal-600/70 pt-2">
+        <div className="group relative aspect-video cursor-pointer select-none rounded-lg pt-2">
           <Link href={`/portfolio/${entry._id}`}>
             <h3 className="relative m-4 p-0 text-base font-bold text-stone-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-sm after:bg-stone-200 after:transition-transform after:content-[''] group-hover:after:origin-bottom-left group-hover:after:scale-x-100 md:text-lg">
               {entry.name}

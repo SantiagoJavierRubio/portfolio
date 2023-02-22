@@ -46,7 +46,7 @@ const Menu = ({ forceShow = false }) => {
       <div
         className={`${
           isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
-        } absolute top-full right-4 origin-top-right overflow-hidden rounded-xl bg-black/20 p-4 backdrop-blur-sm transition-all duration-75`}
+        } absolute top-full right-4 origin-top-right overflow-hidden rounded-xl bg-black/50 p-4 text-lg font-bold backdrop-blur-sm transition-all duration-75`}
       >
         <Link
           href="/portfolio"

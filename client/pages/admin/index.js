@@ -13,7 +13,7 @@ export default function Admin({ entries }) {
       <Layout>
         <h1 className="text-5xl font-bold text-teal-500">Admin panel</h1>
         <section className="m-auto h-full w-full max-w-6xl">
-          <h3 className="p-4 text-left text-xl text-purple-700 underline">
+          <h3 className="p-4 text-left text-xl text-purple-500 underline">
             Add new portfolio element:
           </h3>
           <AddProjectForm
@@ -21,23 +21,36 @@ export default function Admin({ entries }) {
           />
         </section>
         <section className="m-auto h-full w-full max-w-6xl">
-          <h3 className="admin-section-text">
+          <h3 className="p-4 text-left text-xl text-purple-500 underline">
             View and edit portfolio elements:
           </h3>
-          <div className="admin-entries">
+          <div className="flex flex-col items-stretch justify-center gap-6">
             {entries.length === 0 ? (
               <p className="noentries">No projects to show</p>
             ) : (
               entries.map(entry => (
-                <div className="entry" key={entry._id}>
-                  <div className="entry-info">
-                    <h6>{entry.name}</h6>
-                    <p>{entry.date}</p>
-                    <a href={entry.siteUrl} target="_blank" rel="noreferrer">
+                <div
+                  className="flex items-center justify-between rounded-md bg-teal-500 p-6"
+                  key={entry._id}
+                >
+                  <div className="flex items-center gap-4">
+                    <h6 className="text-lg">{entry.name}</h6>
+                    <p className="-ml-2 text-xs font-light italic">
+                      {new Date(entry.date).toLocaleDateString()}
+                    </p>
+                    <a
+                      href={entry.siteUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="ml-2 text-blue-600 underline"
+                    >
                       Demo page
                     </a>
                   </div>
-                  <Link className="edit-btn" href={`/admin/${entry._id}`}>
+                  <Link
+                    className="cursor-pointer rounded-md bg-purple-800 px-6 py-2 text-stone-200"
+                    href={`/admin/${entry._id}`}
+                  >
                     Edit
                   </Link>
                 </div>
@@ -101,10 +114,16 @@ const AddProjectForm = ({ langs }) => {
   }
 
   return (
-    <form className="grid w-full gap-4 text-teal-500" onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Project name:</label>
+    <form
+      className="m-auto grid gap-4 p-2 text-teal-500"
+      onSubmit={handleSubmit}
+    >
+      <div className="flex w-full items-center gap-4">
+        <label className="w-1/5 text-right" htmlFor="name">
+          Project name:
+        </label>
         <input
+          className="max-w-xl grow rounded-md p-1 text-black"
           name="name"
           type="text"
           id="name"
@@ -114,9 +133,12 @@ const AddProjectForm = ({ langs }) => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="summary">Summary:</label>
+      <div className="flex w-full items-center gap-4">
+        <label className="w-1/5 text-right" htmlFor="summary">
+          Summary:
+        </label>
         <input
+          className="max-w-xl grow rounded-md p-1 text-black"
           name="summary"
           type="text"
           id="summary"
@@ -126,9 +148,12 @@ const AddProjectForm = ({ langs }) => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="thumbnail">Thumbnail:</label>
+      <div className="flex w-full items-center gap-4">
+        <label className="w-1/5 text-right" htmlFor="thumbnail">
+          Thumbnail:
+        </label>
         <input
+          className="max-w-xl grow rounded-md p-1 text-black"
           name="thumbnail"
           type="text"
           id="thumbnail"
@@ -137,9 +162,12 @@ const AddProjectForm = ({ langs }) => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="url">Site demo url:</label>
+      <div className="flex w-full items-center gap-4">
+        <label className="w-1/5 text-right" htmlFor="url">
+          Site demo url:
+        </label>
         <input
+          className="max-w-xl grow rounded-md p-1 text-black"
           name="siteUrl"
           type="text"
           id="url"
@@ -148,9 +176,12 @@ const AddProjectForm = ({ langs }) => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="git">Github url:</label>
+      <div className="flex w-full items-center gap-4">
+        <label className="w-1/5 text-right" htmlFor="git">
+          Github url:
+        </label>
         <input
+          className="max-w-xl grow rounded-md p-1 text-black"
           name="gitUrl"
           type="text"
           id="git"
@@ -159,9 +190,12 @@ const AddProjectForm = ({ langs }) => {
           required
         />
       </div>
-      <div>
-        <label htmlFor="description">Description:</label>
+      <div className="flex w-full items-center gap-4">
+        <label className="w-1/5 text-right" htmlFor="description">
+          Description:
+        </label>
         <textarea
+          className="max-w-xl grow rounded-md p-1 text-black"
           name="description"
           id="description"
           value={inputs.description}
@@ -196,15 +230,33 @@ const AddProjectForm = ({ langs }) => {
               </div>
             ))}
         </div>
-        <div id="other-opts" className="mt-8">
-          <label htmlFor="newLang">Add another:</label>
-          <input type="text" id="newLang" onKeyDown={handleInputKeyEnter} />
-          <button type="button" id="new-lang-btn" onClick={addNewLanguage}>
+        <div
+          id="other-opts"
+          className="float-right my-6 flex items-center gap-3"
+        >
+          <div className="flex items-center gap-2">
+            <label htmlFor="newLang">Add another:</label>
+            <input
+              type="text"
+              className="rounded-md p-1"
+              id="newLang"
+              onKeyDown={handleInputKeyEnter}
+            />
+          </div>
+          <button
+            type="button"
+            id="new-lang-btn"
+            className="grow rounded-md bg-teal-500 px-2 py-1 text-center text-stone-200"
+            onClick={addNewLanguage}
+          >
             Add
           </button>
         </div>
       </div>
-      <button type="submit" className="submit-btn">
+      <button
+        type="submit"
+        className="w-full rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
+      >
         Submit
       </button>
     </form>
