@@ -50,7 +50,7 @@ function edit(db, id, data) {
     .then(res => {
       if (res.modifiedCount > 0)
         return {
-          _id: res.upsertedId.toString()
+          _id: id
         }
     })
 }
