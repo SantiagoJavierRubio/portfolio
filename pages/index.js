@@ -26,7 +26,7 @@ export default function Home({ featured }) {
           </h2>
           {/* ADD SOMETHING HERE? */}
           <div className="relative h-full w-1/3 -translate-y-3/4 self-end pr-4">
-            <div className="animate-appearBottom absolute inset-x-0 aspect-square">
+            <div className="absolute inset-x-0 aspect-square animate-appearBottom">
               <Image src="/front-img.png" alt="" fill />
             </div>
           </div>

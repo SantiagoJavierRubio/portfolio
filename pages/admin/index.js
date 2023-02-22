@@ -38,7 +38,7 @@ export default function Admin({ entries }) {
           </h3>
           <div className="flex flex-col items-stretch justify-center gap-6">
             {entries.length === 0 ? (
-              <p className="noentries">No projects to show</p>
+              <p>No projects to show</p>
             ) : (
               entries.map(entry => (
                 <div
