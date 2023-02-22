@@ -30,7 +30,13 @@ function create(db, data) {
   // TODO: validate data
   return db
     .collection('items')
-    .insertOne(data)
+    .insertOne({
+      ...data,
+      date: new Date().toISOString().slice(0, 19).replace('T', ' '),
+      position: 0,
+      visits: 0,
+      likes: 0
+    })
     .then(res => {
       if (res.insertedId)
         return {

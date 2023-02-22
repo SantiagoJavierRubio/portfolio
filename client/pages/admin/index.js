@@ -255,7 +255,7 @@ const AddProjectForm = ({ langs }) => {
       </div>
       <button
         type="submit"
-        className="w-full rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
+        className="m-auto w-full max-w-3xl rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
       >
         Submit
       </button>

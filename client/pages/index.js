@@ -53,7 +53,7 @@ export default function Home({ featured }) {
           <div className="h-0 w-full">
             <Link href="/portfolio">
               <button className="relative float-right m-5 flex cursor-pointer items-center border-0 bg-transparent text-lg font-bold text-purple-500 hover:underline">
-                Check my portfolio <ChevronRightIcon />
+                More <ChevronRightIcon />
               </button>
             </Link>
           </div>

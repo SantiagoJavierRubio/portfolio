@@ -9,6 +9,7 @@ export default function EditPanel({ data }) {
   const router = useRouter()
   const [inputs, setInputs] = useState(data)
   const [languages, setLanguages] = useState(data.langs)
+  const [deleteValidation, setDeleteValidation] = useState('')
 
   const handleRemoveEntry = () => {
     axios
@@ -64,6 +65,11 @@ export default function EditPanel({ data }) {
     e.preventDefault()
     addNewLanguage()
   }
+
+  const handleValidationText = e => {
+    setDeleteValidation(e.target.value)
+  }
+  const isAbleToDelete = deleteValidation !== data.name
   return (
     <Layout>
       <section className="m-auto h-full w-full max-w-6xl">
@@ -264,14 +270,35 @@ export default function EditPanel({ data }) {
           </div>
           <button
             type="submit"
-            className="mt-2 w-full rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
+            className="m-auto mt-2 w-full max-w-3xl rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
           >
             Submit
           </button>
         </form>
-        <button type="button" onClick={handleRemoveEntry}>
-          Delete
-        </button>
+        <div className="m-auto mt-8 max-w-3xl rounded-lg border-2 border-red-500 bg-red-300 p-8 pt-4">
+          <h6 className="mb-6 text-left text-lg font-bold text-red-500">
+            Danger zone
+          </h6>
+          <label htmlFor="deleteValidation">
+            Are you sure? Type project name to confirm
+          </label>
+          <br />
+          <input
+            type="text"
+            id="deleteValidation"
+            value={deleteValidation}
+            onChange={handleValidationText}
+            className="my-4 w-full rounded-sm p-1 text-center text-red-500"
+          />
+          <button
+            type="button"
+            className="m-auto w-full rounded-md bg-red-500 py-4 text-lg font-bold text-stone-200 disabled:bg-gray-500"
+            onClick={handleRemoveEntry}
+            disabled={isAbleToDelete}
+          >
+            Delete
+          </button>
+        </div>
       </section>
     </Layout>
   )

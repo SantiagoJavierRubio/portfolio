@@ -12,7 +12,7 @@ export default function Portfolio({ entries }) {
         <h2 className="p-4 text-left text-2xl font-bold italic text-purple-700">
           These are some of my projects:
         </h2>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid gap-4 px-2 sm:grid-cols-3">
           {entries.map(entry => {
             return <PortfolioCard entry={entry} key={entry._id} />
           })}
