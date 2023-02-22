@@ -1,10 +1,12 @@
 import { Avatar } from '@mui/material'
+import { useSession } from 'next-auth/react'
 import useWindowScroll from '../../hooks/useWindowScroll'
 import Menu from './Menu/Menu'
 import Link from 'next/link'
 
 const NavBar = () => {
   const scroll = useWindowScroll()
+  const { data: session, status } = useSession()
 
   // const { width } = useWindowDimensions()
   // useEffect(() => {
@@ -75,6 +77,14 @@ const NavBar = () => {
           >
             Contact
           </Link>
+          {session && status !== 'unauthenticated' && (
+            <Link
+              className="hover:underline active:text-stone-200"
+              href="/admin"
+            >
+              Admin
+            </Link>
+          )}
         </div>
       </div>
     </nav>
