@@ -8,6 +8,7 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET
     })
   ],
+  secret: process.env.SECRET,
   callbacks: {
     async signIn({ user }) {
       if (user && user.id === process.env.ADMIN_ID) return true
