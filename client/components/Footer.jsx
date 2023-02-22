@@ -1,13 +1,11 @@
+/* eslint-disable tailwindcss/no-custom-classname */
 const Footer = () => {
   return (
     <footer
-      className="separatorCurve"
+      className="mt-8 max-w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16"
       id="footer"
-      style={{
-        backgroundImage: `url(/SVGS/pink_waves_1.svg)`
-      }}
     >
-      <div className="socials">
+      <div className="m-auto flex items-center justify-center gap-6 text-center text-2xl font-bold text-stone-200">
         <a
           href="https://github.com/SantiagoJavierRubio"
           target="_blank"
@@ -23,7 +21,9 @@ const Footer = () => {
           <i className="devicon-linkedin-plain" />
         </a>
       </div>
-      <p>Created by Santiago Javier Rubio - 2022</p>
+      <p className="text-center text-sm font-thin text-stone-200/70">
+        &copy; Santiago Javier Rubio - 2022
+      </p>
     </footer>
   )
 }
