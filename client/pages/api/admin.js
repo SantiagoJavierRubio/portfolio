@@ -41,11 +41,14 @@ function create(db, data) {
 
 function edit(db, id, data) {
   // TODO: validate data
+  if (!data) return
+  // eslint-disable-next-line no-unused-vars
+  const { _id, __v, likes, date, visits, ...edits } = data
   return db
     .collection('items')
-    .updateOne({ _id: new ObjectId(id) }, data)
+    .updateOne({ _id: new ObjectId(id) }, { $set: { ...edits } })
     .then(res => {
-      if (res.upsertedId)
+      if (res.modifiedCount > 0)
         return {
           _id: res.upsertedId.toString()
         }

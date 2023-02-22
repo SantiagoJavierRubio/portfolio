@@ -24,13 +24,23 @@ export default function EditPanel({ data }) {
 
   const handleEditEntry = e => {
     e.preventDefault()
-    axios.put('/api/admin').then(res => {
-      if (res.status === 200) router.reload()
-    })
+    axios
+      .put('/api/admin', inputs, {
+        params: {
+          id: data._id
+        }
+      })
+      .then(res => {
+        if (res.status === 200) router.reload()
+      })
   }
 
   const handleTextChange = e => {
     setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handlePositionChange = e => {
+    setInputs(prev => ({ ...prev, position: parseInt(e.target.value) }))
   }
 
   const handleLangCheck = e => {
@@ -57,13 +67,16 @@ export default function EditPanel({ data }) {
   return (
     <Layout>
       <section className="m-auto h-full w-full max-w-6xl">
-        <form onSubmit={handleEditEntry}>
+        <form
+          onSubmit={handleEditEntry}
+          className="m-auto grid gap-4 p-2 text-teal-500"
+        >
           <div className="flex w-full items-center gap-4">
             <label className="w-1/5 text-right" htmlFor="name">
               Project name:
             </label>
             <input
-              className="max-w-xl grow rounded-md p-1 text-black"
+              className="max-w-3xl grow rounded-md p-1 text-black"
               name="name"
               type="text"
               id="name"
@@ -78,7 +91,7 @@ export default function EditPanel({ data }) {
               Summary:
             </label>
             <input
-              className="max-w-xl grow rounded-md p-1 text-black"
+              className="max-w-3xl grow rounded-md p-1 text-black"
               name="summary"
               type="text"
               id="summary"
@@ -93,7 +106,7 @@ export default function EditPanel({ data }) {
               Thumbnail:
             </label>
             <input
-              className="max-w-xl grow rounded-md p-1 text-black"
+              className="max-w-3xl grow rounded-md p-1 text-black"
               name="thumbnail"
               type="text"
               id="thumbnail"
@@ -107,7 +120,7 @@ export default function EditPanel({ data }) {
               Site demo url:
             </label>
             <input
-              className="max-w-xl grow rounded-md p-1 text-black"
+              className="max-w-3xl grow rounded-md p-1 text-black"
               name="siteUrl"
               type="text"
               id="url"
@@ -121,7 +134,7 @@ export default function EditPanel({ data }) {
               Github url:
             </label>
             <input
-              className="max-w-xl grow rounded-md p-1 text-black"
+              className="max-w-3xl grow rounded-md p-1 text-black"
               name="gitUrl"
               type="text"
               id="git"
@@ -135,7 +148,7 @@ export default function EditPanel({ data }) {
               Description:
             </label>
             <textarea
-              className="max-w-xl grow rounded-md p-1 text-black"
+              className="min-h-[6rem] max-w-3xl grow rounded-md p-1 text-black"
               name="description"
               id="description"
               value={inputs.description}
@@ -183,67 +196,75 @@ export default function EditPanel({ data }) {
                   onKeyDown={handleInputKeyEnter}
                 />
               </div>
-              <div id="immutable-props">
-                <div>
-                  <label htmlFor="date">Date:</label>
-                  <input
-                    name="date"
-                    type="date"
-                    id="date"
-                    value={inputs.date}
-                    disabled
-                    readOnly
-                  />
-                </div>
-                <div>
-                  <label htmlFor="visits">Visits:</label>
-                  <input
-                    name="visits"
-                    id="visits"
-                    type="number"
-                    step={1}
-                    min={0}
-                    value={data.visits}
-                    disabled
-                    readOnly
-                  />
-                </div>
-                <div>
-                  <label htmlFor="likes">Likes:</label>
-                  <input
-                    name="likes"
-                    id="likes"
-                    type="number"
-                    value={data.likes}
-                    disabled
-                    readOnly
-                  />
-                </div>
-                <div>
-                  <label htmlFor="position">Position:</label>
-                  <input
-                    name="position"
-                    id="position"
-                    type="number"
-                    step={1}
-                    min={0}
-                    value={inputs.position}
-                  />
-                </div>
-              </div>
               <button
                 type="button"
                 id="new-lang-btn"
                 className="grow rounded-md bg-teal-500 px-2 py-1 text-center text-stone-200"
                 onClick={addNewLanguage}
               >
-                Submit
+                Add
               </button>
+            </div>
+          </div>
+          <div
+            id="immutable-props"
+            className="flex items-center justify-evenly"
+          >
+            <div>
+              <label htmlFor="date">Date:</label>
+              <input
+                name="date"
+                type="date"
+                id="date"
+                value={new Date(inputs.date).toISOString().substring(0, 10)}
+                disabled
+                readOnly
+                className="ml-2 rounded-sm p-1 text-center font-semibold text-stone-200"
+              />
+            </div>
+            <div>
+              <label htmlFor="visits">Visits:</label>
+              <input
+                name="visits"
+                id="visits"
+                type="number"
+                step={1}
+                min={0}
+                value={data.visits}
+                disabled
+                readOnly
+                className="ml-2 w-12 rounded-sm p-1 text-center font-semibold text-stone-200"
+              />
+            </div>
+            <div>
+              <label htmlFor="likes">Likes:</label>
+              <input
+                name="likes"
+                id="likes"
+                type="number"
+                value={data.likes}
+                disabled
+                readOnly
+                className="ml-2 w-12 rounded-sm p-1 text-center font-semibold text-stone-200"
+              />
+            </div>
+            <div>
+              <label htmlFor="position">Position:</label>
+              <input
+                name="position"
+                id="position"
+                type="number"
+                step={1}
+                min={0}
+                value={inputs.position}
+                onChange={handlePositionChange}
+                className="ml-2 w-12 rounded-sm p-1 text-center font-semibold text-black"
+              />
             </div>
           </div>
           <button
             type="submit"
-            className="w-full rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
+            className="mt-2 w-full rounded-md bg-purple-500 py-4 text-lg font-bold text-stone-200 transition-all hover:-translate-y-px hover:shadow-md hover:shadow-purple-200/10 active:translate-y-0 active:shadow-none"
           >
             Submit
           </button>

@@ -123,7 +123,7 @@ const AddProjectForm = ({ langs }) => {
           Project name:
         </label>
         <input
-          className="max-w-xl grow rounded-md p-1 text-black"
+          className="max-w-3xl grow rounded-md p-1 text-black"
           name="name"
           type="text"
           id="name"
@@ -138,7 +138,7 @@ const AddProjectForm = ({ langs }) => {
           Summary:
         </label>
         <input
-          className="max-w-xl grow rounded-md p-1 text-black"
+          className="max-w-3xl grow rounded-md p-1 text-black"
           name="summary"
           type="text"
           id="summary"
@@ -153,7 +153,7 @@ const AddProjectForm = ({ langs }) => {
           Thumbnail:
         </label>
         <input
-          className="max-w-xl grow rounded-md p-1 text-black"
+          className="max-w-3xl grow rounded-md p-1 text-black"
           name="thumbnail"
           type="text"
           id="thumbnail"
@@ -167,7 +167,7 @@ const AddProjectForm = ({ langs }) => {
           Site demo url:
         </label>
         <input
-          className="max-w-xl grow rounded-md p-1 text-black"
+          className="max-w-3xl grow rounded-md p-1 text-black"
           name="siteUrl"
           type="text"
           id="url"
@@ -181,7 +181,7 @@ const AddProjectForm = ({ langs }) => {
           Github url:
         </label>
         <input
-          className="max-w-xl grow rounded-md p-1 text-black"
+          className="max-w-3xl grow rounded-md p-1 text-black"
           name="gitUrl"
           type="text"
           id="git"
@@ -195,7 +195,7 @@ const AddProjectForm = ({ langs }) => {
           Description:
         </label>
         <textarea
-          className="max-w-xl grow rounded-md p-1 text-black"
+          className="min-h-[6rem] max-w-3xl grow rounded-md p-1 text-black"
           name="description"
           id="description"
           value={inputs.description}
