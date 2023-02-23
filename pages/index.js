@@ -22,7 +22,7 @@ export default function Home({ featured }) {
             Hi! My name is Santiago
           </h1>
           <h2 className="animate-appearBottom self-start text-3xl font-semibold italic text-purple-700">
-            I&apos;m a full-stack web developer
+            I&apos;m a Fullstack web developer
           </h2>
           {/* ADD SOMETHING HERE? */}
           <div className="relative h-full w-1/3 -translate-y-3/4 self-end pr-4">
@@ -53,7 +53,7 @@ export default function Home({ featured }) {
           <div className="h-0 w-full">
             <Link href="/portfolio">
               <button className="relative float-right m-5 mr-8 flex cursor-pointer items-center border-0 bg-transparent text-lg font-bold text-purple-500 hover:underline">
-                More <ChevronRightIcon />
+                See more <ChevronRightIcon />
               </button>
             </Link>
           </div>
