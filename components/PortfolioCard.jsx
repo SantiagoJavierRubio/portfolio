@@ -22,7 +22,7 @@ const PortfolioCard = ({ entry, ...props }) => {
       {entry && (
         <div className="group relative aspect-video cursor-pointer select-none rounded-lg pt-2">
           <Link href={`/portfolio/${entry._id}`}>
-            <h3 className="relative m-4 p-0 text-base font-bold text-stone-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-sm after:bg-stone-200 after:transition-transform after:content-[''] group-hover:after:origin-bottom-left group-hover:after:scale-x-100 md:text-lg">
+            <h3 className="relative m-4 truncate p-0 text-lg font-bold text-stone-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:rounded-sm after:bg-stone-200 after:transition-transform after:content-[''] group-hover:after:origin-bottom-left group-hover:after:scale-x-100 sm:text-lg md:text-base lg:text-lg">
               {entry.name}
             </h3>
             <div className="relative aspect-video w-full overflow-hidden">
