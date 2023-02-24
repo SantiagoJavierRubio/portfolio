@@ -2,7 +2,7 @@
 const Footer = () => {
   return (
     <footer
-      className="mt-8 max-w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16"
+      className="relative mt-8 max-w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16"
       id="footer"
     >
       <div className="m-auto flex items-center justify-center gap-6 text-center text-2xl font-bold text-stone-200">

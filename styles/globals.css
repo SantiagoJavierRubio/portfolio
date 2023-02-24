@@ -17,12 +17,50 @@ body {
     overflow-y: scroll;
     overflow-x: hidden;
     overscroll-behavior: none;
-    @apply bg-stone-900
+    @apply bg-stone-900;
+    position: relative;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#bgCloudBlur {
+    filter: blur(150px);
+    backdrop-filter: blur(150px);
+}
+
+#bgCloud {
+    position: absolute;
+    aspect-ratio: 1;
+    z-index: 0;
+    width: 250px;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    transform-origin: center;
+    border-radius: 50%;
+    background: linear-gradient(
+        to right,
+        rgb(20 184 166),
+        rgb(168, 85, 247)
+    );
+    animation: rotate 18s cubic-bezier(0.165, 0.84, 0.44, 1) alternate infinite;
+}
+
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+        opacity: 0.65;
+    }
+    50% {
+        scale: 1.5 1.3;
+    }
+    to {
+        rotate: 360deg;
+        opacity: 0.75;
+    }
 }
 
 @keyframes fade-in {
