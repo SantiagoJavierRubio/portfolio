@@ -37,8 +37,10 @@ const NavBar = () => {
       <div className="relative m-auto flex h-full w-full max-w-7xl flex-row flex-nowrap items-center justify-between">
         <Link
           className={` flex ${
-            scroll > 35 ? 'ml-1 -mt-2 opacity-60' : 'ml-4 opacity-100'
-          } h-8 items-center justify-center gap-4 transition-all hover:opacity-100`}
+            scroll > 35
+              ? 'ml-1 -mt-1 scale-90 opacity-60'
+              : 'ml-4 scale-100 opacity-100'
+          } h-8 items-center justify-center gap-4 transition-all duration-700 hover:opacity-100`}
           href="/"
         >
           <Avatar
@@ -58,9 +60,9 @@ const NavBar = () => {
         </Link>
         <Menu forceShow={scroll > 35} />
         <div
-          className={`flex scale-0 opacity-0 sm:mr-4 ${
-            scroll < 35 && 'sm:scale-100 sm:opacity-100'
-          } origin-right transition-all sm:gap-4`}
+          className={`flex -translate-y-2 scale-0 opacity-0 sm:mr-4 ${
+            scroll < 35 && 'sm:translate-y-0 sm:scale-100 sm:opacity-100'
+          } origin-right transition-all duration-700 sm:gap-4`}
         >
           <Link
             className="hover:underline active:text-stone-200"

@@ -19,7 +19,7 @@ export default function BgCloud() {
           (window.innerHeight + scroll) * 0.75
         )}px`
       },
-      { duration: 4000, fill: 'forwards' }
+      { duration: 10000, fill: 'forwards' }
     )
   }
   useEffect(() => {
@@ -29,7 +29,7 @@ export default function BgCloud() {
   })
   return (
     <>
-      <div id="bgCloud" ref={cloudRef} />
+      <div id="bgCloud" className="hidden motion-safe:block" ref={cloudRef} />
       <div id="bgCloudBlur" className="absolute inset-0 -top-32" />
     </>
   )

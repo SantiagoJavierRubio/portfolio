@@ -31,7 +31,7 @@ const Menu = ({ forceShow = false }) => {
     <div
       className={`absolute right-2 top-2 z-50 flex scale-100 flex-col opacity-100 ${
         !forceShow && 'sm:scale-0 sm:opacity-0'
-      } transition-all`}
+      } transition-all duration-700`}
       ref={elRef}
     >
       <div>
