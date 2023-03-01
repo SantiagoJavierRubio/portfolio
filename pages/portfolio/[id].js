@@ -13,7 +13,7 @@ export default function Project({ data }) {
   return (
     <Layout>
       {data && (
-        <section className="relative m-auto mt-20 h-full w-full max-w-6xl">
+        <section className="relative m-auto mt-20 h-full w-full max-w-6xl px-2 sm:px-0">
           <h1 className="text-center text-2xl font-bold text-teal-400">
             {data.name}
           </h1>
@@ -31,22 +31,22 @@ export default function Project({ data }) {
           </p>
           <p
             id="resources-title"
-            className="px-8 py-2 text-left text-base font-normal text-teal-500 underline"
+            className="py-2 text-left text-base font-normal text-teal-500 underline sm:px-4 md:px-8"
           >
             Resources:{' '}
           </p>
           <div
             id="resource-list"
-            className="mx-auto grid grid-cols-3 gap-4 sm:grid-cols-5 md:w-4/5"
+            className="mx-auto grid grid-cols-2 gap-4 px-4 sm:grid-cols-3 sm:p-0 md:w-4/5 md:grid-cols-4"
           >
             {data.langs.map(lang => {
               return (
                 <div
                   key={lang}
-                  className="text-left text-lg text-purple-400 sm:p-4"
+                  className="animate-crossThrough bg-gradient-to-tr from-teal-400 via-purple-400 to-teal-300/90 bg-150 bg-clip-text text-left text-lg text-transparent sm:p-4"
                 >
                   {getIcon(lang)}
-                  <span className="ml-2 text-stone-200">{lang}</span>
+                  <span className="ml-2 text-base text-stone-200">{lang}</span>
                 </div>
               )
             })}
@@ -66,18 +66,24 @@ export default function Project({ data }) {
                   id="webpage-btn"
                   target="_blank"
                   rel="author noreferrer"
-                  className="mb-2 cursor-pointer rounded-md bg-gray-500 py-2 px-4 text-center font-bold text-stone-200"
+                  className="group mb-2 flex h-12 w-24 cursor-pointer items-center justify-center rounded-md bg-stone-900 py-2 px-4 text-center font-bold text-stone-200 transition-all hover:-translate-y-px hover:drop-shadow-md active:translate-y-0"
                 >
-                  Site <WebIcon />
+                  <span className="whitespace-nowrap bg-gradient-to-r from-purple-500 via-teal-500 to-purple-500 bg-200 bg-clip-text bg-[0%] font-extrabold text-transparent transition-all duration-1000 group-hover:bg-[-200%] group-active:from-teal-500">
+                    Site
+                  </span>
+                  <WebIcon className="text-purple-400/80 transition-all duration-1000 group-hover:text-teal-400/80" />
                 </a>
                 <a
                   href={data.gitUrl}
                   id="git-btn"
                   target="_blank"
                   rel="noreferrer"
-                  className="mb-2 cursor-pointer rounded-md bg-gray-500 py-2 px-4 text-center font-bold text-stone-200"
+                  className="group mb-2 cursor-pointer rounded-md bg-stone-900 py-3 px-5 text-center font-bold text-stone-200 transition-all hover:-translate-y-px hover:drop-shadow-md active:translate-y-0"
                 >
-                  Code <GitHubIcon />
+                  <span className="whitespace-nowrap bg-gradient-to-r from-teal-500 via-purple-500 to-teal-500 bg-200 bg-clip-text bg-[0%] font-extrabold text-transparent transition-all duration-1000 group-hover:bg-[-200%] group-active:from-teal-500">
+                    Code{' '}
+                  </span>
+                  <GitHubIcon className="text-teal-400/80 transition-all duration-1000 group-hover:text-purple-400/80" />
                 </a>
               </div>
             </div>

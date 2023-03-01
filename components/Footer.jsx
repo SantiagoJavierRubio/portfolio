@@ -5,12 +5,12 @@ const Footer = () => {
       className="relative mt-8 max-w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16"
       id="footer"
     >
-      <div className="m-auto flex items-center justify-center gap-6 text-center text-2xl font-bold text-stone-200">
+      <div className="m-auto flex items-center justify-center gap-6 text-center text-2xl font-bold text-stone-400">
         <a
           href="https://github.com/SantiagoJavierRubio"
           target="_blank"
           rel="noopener noreferrer"
-          className="h-10 w-10 transition-all hover:text-3xl hover:text-stone-100"
+          className="h-10 w-10 transition-all hover:text-3xl hover:text-white"
         >
           <i className="devicon-github-original" />
         </a>
@@ -18,7 +18,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/santiago-javier-rubio"
           target="_blank"
           rel="noopener noreferrer"
-          className="h-10 w-10 transition-all hover:text-3xl hover:text-stone-100"
+          className="h-10 w-10 transition-all hover:text-3xl hover:text-sky-600"
         >
           <i className="devicon-linkedin-plain" />
         </a>
