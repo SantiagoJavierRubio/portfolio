@@ -19,6 +19,8 @@ export default function useWindowDimensions() {
       setWindowDimensions(getWindowDimensions(window))
     }
 
+    if (windowDimensions.width === 0 || windowDimensions.height === 0)
+      handleResize()
     window.addEventListener('resize', handleResize)
     return () => window.removeEventListener('resize', handleResize)
   }, [])
