@@ -1,38 +1,17 @@
 import { Avatar } from '@mui/material'
 import { useSession } from 'next-auth/react'
 import useWindowScroll from '../../hooks/useWindowScroll'
-import Menu from './Menu/Menu'
+import Menu from './Menu'
 import Link from 'next/link'
 
 const NavBar = () => {
   const scroll = useWindowScroll()
   const { data: session, status } = useSession()
 
-  // const { width } = useWindowDimensions()
-  // useEffect(() => {
-  //   if (width < 768 && !miniature) setMiniature(true)
-  // }, [width])
-
-  // useEffect(() => {
-  //   const checkScroll = () => {
-  //     if (width < 768) return
-  //     if (window.scrollY > 35 && !miniature) setMiniature(true)
-  //     if (window.scrollY < 35 && miniature) setMiniature(false)
-  //   }
-  //   window.addEventListener('scroll', checkScroll)
-  //   return () => window.removeEventListener('scroll', checkScroll)
-  // })
-
   return (
     <nav
       id="nav-bar"
       className="fixed top-0 z-50 h-16 w-full bg-transparent text-teal-400 transition-all"
-      // className={
-      //   'fixed flex flex-row flex-nowrap justify-between items-center text-cyan-200 transition-all' +
-      //   miniature
-      //     ? 'miniNavBar'
-      //     : 'fullNavBar'
-      // }
     >
       <div className="relative m-auto flex h-full w-full max-w-7xl flex-row flex-nowrap items-center justify-between">
         <Link
@@ -65,23 +44,26 @@ const NavBar = () => {
           } origin-right transition-all duration-700 sm:gap-4`}
         >
           <Link
-            className="hover:underline active:text-stone-200"
+            className="decoration-inherit/10 -translate-y-px decoration-4 underline-offset-4 transition-all hover:translate-y-0 hover:underline hover:decoration-inherit hover:decoration-auto hover:underline-offset-2 active:text-stone-200"
             href="/portfolio"
           >
             Portfolio
           </Link>
-          <Link className="hover:underline active:text-stone-200" href="/about">
+          <Link
+            className="decoration-inherit/10 -translate-y-px decoration-4 underline-offset-4 transition-all hover:translate-y-0 hover:underline hover:decoration-inherit hover:decoration-auto hover:underline-offset-2 active:text-stone-200"
+            href="/about"
+          >
             About
           </Link>
           <Link
-            className="hover:underline active:text-stone-200"
+            className="decoration-inherit/10 -translate-y-px decoration-4 underline-offset-4 transition-all hover:translate-y-0 hover:underline hover:decoration-inherit hover:decoration-auto hover:underline-offset-2 active:text-stone-200"
             href="/#contact"
           >
             Contact
           </Link>
           {session && status !== 'unauthenticated' && (
             <Link
-              className="hover:underline active:text-stone-200"
+              className="decoration-inherit/10 -translate-y-px decoration-4 underline-offset-4 transition-all hover:translate-y-0 hover:underline hover:decoration-inherit hover:decoration-auto hover:underline-offset-2 active:text-stone-200"
               href="/admin"
             >
               Admin

@@ -1,13 +1,15 @@
 /* eslint-disable tailwindcss/no-custom-classname */
 import { useEffect, useRef } from 'react'
 import useWindowScroll from '../hooks/useWindowScroll'
+import useWindowDimensions from '../hooks/useWindowDimensions'
 
 export default function BgCloud() {
   const cloudRef = useRef(null)
   const scroll = useWindowScroll()
+  const { width } = useWindowDimensions()
 
   const pointerMoveHandler = e => {
-    if (!cloudRef.current) return
+    if (!cloudRef.current || width < 640) return
     cloudRef.current.animate(
       {
         left: `${Math.min(
@@ -19,14 +21,18 @@ export default function BgCloud() {
           (window.innerHeight + scroll) * 0.75
         )}px`
       },
-      { duration: 10000, fill: 'forwards' }
+      { duration: 5000, fill: 'forwards' }
     )
   }
   useEffect(() => {
-    document.addEventListener('pointermove', pointerMoveHandler)
-
-    return () => document.removeEventListener('pointermove', pointerMoveHandler)
-  })
+    if (width > 640) {
+      document.addEventListener('pointermove', pointerMoveHandler)
+    }
+    return () => {
+      width > 640 &&
+        document.removeEventListener('pointermove', pointerMoveHandler)
+    }
+  }, [width, scroll])
   return (
     <>
       <div id="bgCloud" className="hidden motion-safe:block" ref={cloudRef} />

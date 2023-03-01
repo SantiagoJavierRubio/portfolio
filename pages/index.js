@@ -12,26 +12,67 @@ import ReportIcon from '@mui/icons-material/Report'
 
 import Layout from '../components/Layout'
 import PortfolioCard from '../components/PortfolioCard'
+import TextScroller from '../components/TextScroller'
+
+const CODE_TEXT = `
+<h1>My tool belt</h1>
+<ul>
+  <li>
+    <h2>Programming languages: </h2>
+    <ul>
+      <li>Javascript</li>
+      <li>Typescript</li>
+      <li>SQL</li>
+      <li>Python</li>
+    </ul>
+  </li>
+  <li>
+  <h2>Frameworks: </h2>
+    <ul>
+      <li>Node</li>
+      <li>React</li>
+      <li>Next</li>
+      <li>Express</li>
+    </ul>
+  </li>
+  <li>
+  <h2>Design & styles: </h2>
+    <ul>
+      <li>CSS</li>
+      <li>Tailwind</li>
+      <li>Styled components</li>
+      <li>MaterialUI</li>
+    </ul>
+  </li>
+</ul>
+`
+
+function parseCodeToText(code) {
+  const lines = code.split('\n')
+  return lines.filter(line => !!line)
+}
+
+const parsedCode = parseCodeToText(CODE_TEXT)
 
 export default function Home({ featured }) {
   return (
     <Layout>
       <section className="relative m-auto h-full w-full max-w-6xl text-stone-200 sm:p-4">
-        <div className="flex h-64 w-full flex-col gap-4">
+        <div className="flex h-auto w-full flex-col gap-4 sm:h-64">
           <h1 className="animate-appearLeft self-start text-5xl font-bold text-teal-500">
             Hi! My name is Santiago
           </h1>
-          <h2 className="animate-appearBottom self-start text-3xl font-semibold italic text-purple-700">
+          <h2 className="animate-appearBottom text-3xl font-semibold italic text-purple-700 sm:self-start">
             I&apos;m a Fullstack web developer
           </h2>
-          {/* ADD SOMETHING HERE? */}
-          <div className="relative h-full w-1/3 -translate-y-3/4 self-end pr-4">
-            <div className="absolute inset-x-0 aspect-square animate-appearBottom">
-              <Image src="/front-img.png" alt="" fill />
+          <div className="relative hidden h-full w-full pr-4 sm:block">
+            <TextScroller textArray={parsedCode} />
+            <div className="absolute right-[5%] top-0 aspect-square animate-appearBottom sm:w-64 md:w-72">
+              <Image src="/front-img.png" alt="developer desk" fill />
             </div>
           </div>
         </div>
-        <article className="mb-20 px-4 md:mt-20 md:p-0 lg:mt-32">
+        <article className="mb-20 mt-4 px-4 sm:mt-24 md:p-0 lg:mt-32">
           <h2
             id="featured-title"
             className="p-2 text-left text-lg text-teal-500"
@@ -52,7 +93,7 @@ export default function Home({ featured }) {
           </div>
           <div className="h-0 w-full">
             <Link href="/portfolio">
-              <button className="relative float-right m-5 mr-8 flex cursor-pointer items-center border-0 bg-transparent text-lg font-bold text-purple-500 hover:underline">
+              <button className="relative float-right m-5 mr-8 flex cursor-pointer items-center border-0 bg-transparent text-lg font-bold text-purple-500 after:absolute after:bottom-0 after:left-0 after:h-1 after:w-4/5 after:origin-bottom-right after:scale-x-0 after:rounded-sm after:bg-purple-500 after:transition-transform after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100 active:text-teal-400/80 active:after:bg-teal-400/80">
                 See more <ChevronRightIcon />
               </button>
             </Link>

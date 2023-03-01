@@ -121,7 +121,7 @@ export default function About() {
             passionate about it 🧑‍💻
           </p>
           <p className="m-4 text-left text-xl text-stone-200">
-            Finally, here&apos;s me with my beautiful dog, Leon:
+            Here&apos;s me with my beautiful dog, Leon:
           </p>
           {/* TODO: IMAGE */}
         </article>

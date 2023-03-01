@@ -7,7 +7,7 @@ export default function Layout({ children }) {
   return (
     <>
       <Head>
-        <title>Santiago Rubio - Web Dev</title>
+        <title>Santiago Rubio - Dev</title>
       </Head>
       <NavBar />
       <BgCloud />

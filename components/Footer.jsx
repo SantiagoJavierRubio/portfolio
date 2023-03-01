@@ -10,6 +10,7 @@ const Footer = () => {
           href="https://github.com/SantiagoJavierRubio"
           target="_blank"
           rel="noopener noreferrer"
+          className="h-10 w-10 transition-all hover:text-3xl hover:text-stone-100"
         >
           <i className="devicon-github-original" />
         </a>
@@ -17,6 +18,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/santiago-javier-rubio"
           target="_blank"
           rel="noopener noreferrer"
+          className="h-10 w-10 transition-all hover:text-3xl hover:text-stone-100"
         >
           <i className="devicon-linkedin-plain" />
         </a>
