@@ -66,7 +66,7 @@ export default function Project({ data }) {
                   id="webpage-btn"
                   target="_blank"
                   rel="author noreferrer"
-                  className="group mb-2 flex h-12 w-24 cursor-pointer items-center justify-center rounded-md bg-stone-900 py-2 px-4 text-center font-bold text-stone-200 transition-all hover:-translate-y-px hover:drop-shadow-md active:translate-y-0"
+                  className="group mb-2 flex h-12 w-24 cursor-pointer items-center justify-center rounded-md bg-stone-900 py-2 px-4 text-center font-bold text-stone-200 transition-all duration-1000 ease-in-out hover:-translate-x-px hover:drop-shadow-md active:translate-y-0"
                 >
                   <span className="whitespace-nowrap bg-gradient-to-r from-purple-500 via-teal-500 to-purple-500 bg-200 bg-clip-text bg-[0%] font-extrabold text-transparent transition-all duration-1000 group-hover:bg-[-200%] group-active:from-teal-500">
                     Site
@@ -78,7 +78,7 @@ export default function Project({ data }) {
                   id="git-btn"
                   target="_blank"
                   rel="noreferrer"
-                  className="group mb-2 cursor-pointer rounded-md bg-stone-900 py-3 px-5 text-center font-bold text-stone-200 transition-all hover:-translate-y-px hover:drop-shadow-md active:translate-y-0"
+                  className="group mb-2 cursor-pointer rounded-md bg-stone-900 py-3 px-5 text-center font-bold text-stone-200 transition-all duration-1000 ease-in-out hover:-translate-x-px hover:drop-shadow-md active:translate-y-0"
                 >
                   <span className="whitespace-nowrap bg-gradient-to-r from-teal-500 via-purple-500 to-teal-500 bg-200 bg-clip-text bg-[0%] font-extrabold text-transparent transition-all duration-1000 group-hover:bg-[-200%] group-active:from-teal-500">
                     Code{' '}
@@ -88,7 +88,7 @@ export default function Project({ data }) {
               </div>
             </div>
             <div className="w-full">
-              <h6 className="text-left font-bold text-purple-700 underline">
+              <h6 className="mb-1 text-left font-bold text-stone-200 underline">
                 Demo:
               </h6>
               <iframe
