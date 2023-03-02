@@ -36,7 +36,7 @@ const CODE_TEXT = `
     </ul>
   </li>
   <li>
-  <h2>Design & styles: </h2>
+  <h2>Design & styling: </h2>
     <ul>
       <li>CSS</li>
       <li>Tailwind</li>
@@ -156,7 +156,7 @@ const ContactForm = () => {
     axios
       .post('/api/contact', inputs)
       .then(res => {
-        if (res.ok) {
+        if (res.status === 200) {
           setInputs({
             name: '',
             email: '',
@@ -203,6 +203,7 @@ const ContactForm = () => {
         placeholder="Name"
         value={inputs.name}
         onChange={handleChange}
+        required
       />
       <label htmlFor="email" className="hidden">
         Email
