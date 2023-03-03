@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 import clientPromise from '../../lib/mongodb'
 import Link from 'next/link'
 import Layout from '../../components/Layout'
@@ -97,6 +98,7 @@ const DEFAULT_VALUES = {
 const AddProjectForm = ({ langs }) => {
   const [inputs, setInputs] = useState(DEFAULT_VALUES)
   const [languages, setLanguages] = useState(langs)
+  const router = useRouter()
 
   const handleTextChange = e => {
     setInputs(prev => ({ ...prev, [e.target.name]: e.target.value }))
@@ -123,13 +125,13 @@ const AddProjectForm = ({ langs }) => {
     e.preventDefault()
     addNewLanguage()
   }
+  // TODO: check if reload works & handle errors
   const handleSubmit = e => {
     e.preventDefault()
     axios
       .post('/api/admin', inputs)
       .then(res => {
-        if (res.ok) setInputs(DEFAULT_VALUES)
-        else console.log(res)
+        if (res.status === 200) router.reload()
       })
       .catch(err => console.log(err))
   }

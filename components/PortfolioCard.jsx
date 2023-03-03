@@ -3,6 +3,8 @@ import { twMerge } from 'tailwind-merge'
 import Link from 'next/link'
 import Image from 'next/image'
 
+// TODO: display default img placeholder if thumbnail doesnt load properly
+
 const PortfolioCard = ({ entry, ...props }) => {
   const twStyle = twMerge(
     'w-full overflow-hidden rounded-xl shrink-0 bg-teal-700/70',

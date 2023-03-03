@@ -19,6 +19,8 @@ const icons = {
   next: <i className="devicon-nextjs-original" />
 }
 
+// TODO: Better handle non listed
+
 export const getIcon = resource => {
   const r = resource.toLowerCase()
   switch (r) {
@@ -33,6 +35,7 @@ export const getIcon = resource => {
     case 'react':
       return icons.react
     case 'next':
+    case 'next-auth':
       return icons.next
     case 'redux':
     case 'redux-saga':

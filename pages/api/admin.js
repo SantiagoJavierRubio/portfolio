@@ -1,6 +1,8 @@
 import clientPromise from '../../lib/mongodb'
 import { ObjectId } from 'mongodb'
 
+// TODO: portfolio and index dont update on new element/edit
+
 export default async function handler(req, res) {
   try {
     const client = await clientPromise

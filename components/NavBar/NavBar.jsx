@@ -39,6 +39,7 @@ const NavBar = () => {
         </Link>
         {session && status !== 'unauthenticated' && (
           <Link
+            // TODO: Handle style when scrolling
             className="cursor-pointer text-lg font-bold text-stone-200"
             href="/api/auth/signout"
           >

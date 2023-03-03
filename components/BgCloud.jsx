@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react'
 import useWindowScroll from '../hooks/useWindowScroll'
 import useWindowDimensions from '../hooks/useWindowDimensions'
 
+// TODO: Handle edge cases when on resize ball goes down of blur
+
 export default function BgCloud() {
   const cloudRef = useRef(null)
   const scroll = useWindowScroll()

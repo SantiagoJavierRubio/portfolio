@@ -5,10 +5,8 @@ const nextConfig = {
     locales: ['en', 'es']
   },
   images: {
-    domains: ['github.com', 'e0.365dm.com']
+    domains: ['github.com', 'res.cloudinary.com']
   }
 }
-
-// TODO: set only github images
 
 module.exports = nextConfig
