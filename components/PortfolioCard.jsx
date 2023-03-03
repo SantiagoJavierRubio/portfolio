@@ -33,7 +33,7 @@ const PortfolioCard = ({ entry, ...props }) => {
                 className="object-cover"
               />
             </div>
-            <div className="absolute inset-x-0 bottom-0 flex h-1/3 origin-bottom items-center justify-center bg-black/80 transition-all group-hover:scale-100 group-hover:opacity-100 sm:scale-y-0 sm:opacity-0">
+            <div className="absolute inset-x-0 -bottom-1 flex h-1/3 origin-bottom items-center justify-center bg-black/80 pb-1 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100 sm:scale-y-0 sm:opacity-0">
               <p className="truncate text-sm font-normal text-stone-200">
                 {entry.summary}
               </p>
