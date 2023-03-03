@@ -31,6 +31,7 @@ module.exports = {
         appearBottom: 'appear-bottom 1s ease-in-out',
         appearLeft: 'appear-left 1s ease-in-out',
         backgroundPan: 'background-pan 1s linear infinite',
+        backgroundSlowPan: 'background-pan 3.5s linear infinite',
         crossThrough: 'cross-through 60s linear alternate infinite'
       }
     }

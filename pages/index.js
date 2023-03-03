@@ -102,21 +102,21 @@ export default function Home({ featured }) {
         <article id="contact" className="mt-32">
           <div
             id="questions"
-            className="m-auto flex w-4/5 items-center justify-between"
+            className="m-auto flex animate-backgroundSlowPan items-center justify-between bg-teal-500 bg-gradient-to-r from-teal-500 via-teal-200/70 to-teal-500 bg-200 bg-clip-text sm:w-4/5"
           >
-            <h6 className="text-center text-lg font-bold text-teal-500">
+            <h6 className="flex-1 text-center text-base text-transparent sm:font-bold md:text-lg">
               Don&apos;t have a website yet?
             </h6>
-            <h6 className="-translate-y-12 translate-x-4 text-center text-lg font-bold text-teal-500">
-              Looking for an upgrade on your existing web?
+            <h6 className="mb-28 flex-1 self-start text-center text-base text-transparent sm:font-bold md:text-lg">
+              Looking for an upgrade on your website?
             </h6>
-            <h6 className="text-center text-lg font-bold text-teal-500">
+            <h6 className="flex-1 text-center text-base text-transparent sm:font-bold md:text-lg">
               Want to improve your business?
             </h6>
           </div>
           <h6
             id="contact-title"
-            className="mb-2 mt-4 text-center text-xl font-bold text-purple-500 underline"
+            className="mb-2 text-center text-xl font-bold text-purple-500 underline"
           >
             Contact me
           </h6>
