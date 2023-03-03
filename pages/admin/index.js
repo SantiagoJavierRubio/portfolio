@@ -17,12 +17,6 @@ export default function Admin({ entries }) {
   else if (session && status !== 'unauthenticated')
     return (
       <Layout>
-        <Link
-          className="absolute top-0 z-50 cursor-pointer text-lg font-bold text-stone-200"
-          href="/api/auth/signout"
-        >
-          Log out
-        </Link>
         <h1 className="text-5xl font-bold text-teal-500">Admin panel</h1>
         <section className="m-auto h-full w-full max-w-6xl">
           <h3 className="p-4 text-left text-xl text-purple-500 underline">
