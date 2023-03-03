@@ -37,6 +37,14 @@ const NavBar = () => {
             Santiago Javier Rubio
           </h1>
         </Link>
+        {session && status !== 'unauthenticated' && (
+          <Link
+            className="cursor-pointer text-lg font-bold text-stone-200"
+            href="/api/auth/signout"
+          >
+            Log out
+          </Link>
+        )}
         <Menu forceShow={scroll > 35} />
         <div
           className={`flex -translate-y-2 scale-0 opacity-0 sm:mr-4 ${

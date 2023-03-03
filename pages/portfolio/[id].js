@@ -25,7 +25,7 @@ export default function Project({ data }) {
           </p>
           <p
             id="portfolio-item-description"
-            className="m-auto mt-2 text-center text-stone-300 sm:w-2/3"
+            className="m-auto mt-2 whitespace-pre-wrap text-center text-stone-300 sm:w-3/4"
           >
             {data.description}
           </p>
@@ -92,7 +92,7 @@ export default function Project({ data }) {
                 Demo:
               </h6>
               <iframe
-                className="min-h-screen w-full rounded-sm"
+                className="min-h-screen w-full overflow-scroll rounded-sm scrollbar-hide"
                 src={data.siteUrl}
                 title={data.name}
               />
