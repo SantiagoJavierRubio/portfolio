@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/NavBar/Menu.jsx:71
+#: components/NavBar/NavBar.jsx:67
+msgid "About"
+msgstr "About"
+
 #: pages/about.js:12
 msgid "About me"
 msgstr "About me"
@@ -40,6 +45,11 @@ msgstr "Competences"
 #: pages/about.js:105
 msgid "Competent"
 msgstr "Competent"
+
+#: components/NavBar/Menu.jsx:86
+#: components/NavBar/NavBar.jsx:73
+msgid "Contact"
+msgstr "Contact"
 
 #: pages/index.js:124
 msgid "Contact me"
@@ -137,6 +147,10 @@ msgstr "Studies"
 #: pages/about.js:94
 msgid "Styling with CSS, Tailwind, Styled-components"
 msgstr "Styling with CSS, Tailwind, Styled-components"
+
+#: pages/portfolio/index.js:15
+msgid "These are some of my projects:"
+msgstr "These are some of my projects:"
 
 #: pages/index.js:117
 msgid "Want to improve your business?"

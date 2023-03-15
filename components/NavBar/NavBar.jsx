@@ -3,6 +3,8 @@ import { useSession } from 'next-auth/react'
 import useWindowScroll from '../../hooks/useWindowScroll'
 import Menu from './Menu'
 import Link from 'next/link'
+import { Trans } from '@lingui/macro'
+import { loadCatalog } from '../../lib/intl'
 
 const NavBar = () => {
   const scroll = useWindowScroll()
@@ -62,13 +64,13 @@ const NavBar = () => {
             className="decoration-inherit/10 -translate-y-px decoration-4 underline-offset-4 transition-all hover:translate-y-0 hover:underline hover:decoration-inherit hover:decoration-auto hover:underline-offset-2 active:text-stone-200"
             href="/about"
           >
-            About
+            <Trans>About</Trans>
           </Link>
           <Link
             className="decoration-inherit/10 -translate-y-px decoration-4 underline-offset-4 transition-all hover:translate-y-0 hover:underline hover:decoration-inherit hover:decoration-auto hover:underline-offset-2 active:text-stone-200"
             href="/#contact"
           >
-            Contact
+            <Trans>Contact</Trans>
           </Link>
           {session && status !== 'unauthenticated' && (
             <Link
@@ -85,3 +87,11 @@ const NavBar = () => {
 }
 
 export default NavBar
+
+export async function getStaticProps(ctx) {
+  return {
+    props: {
+      i18n: await loadCatalog(ctx.locale)
+    }
+  }
+}

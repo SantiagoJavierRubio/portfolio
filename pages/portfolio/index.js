@@ -1,6 +1,8 @@
 import clientPromise from '../../lib/mongodb'
 import Layout from '../../components/Layout'
 import PortfolioCard from '../../components/PortfolioCard'
+import { Trans } from '@lingui/macro'
+import { loadCatalog } from '../../lib/intl'
 
 export default function Portfolio({ entries }) {
   return (
@@ -10,7 +12,7 @@ export default function Portfolio({ entries }) {
           Portfolio
         </h1>
         <h2 className="p-4 text-left text-2xl font-bold italic text-purple-700">
-          These are some of my projects:
+          <Trans>These are some of my projects:</Trans>
         </h2>
         <div className="grid gap-4 px-2 sm:grid-cols-3">
           {entries.map(entry => {
@@ -22,7 +24,8 @@ export default function Portfolio({ entries }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(ctx) {
+  const i18n = await loadCatalog(ctx.locale)
   try {
     const client = await clientPromise
     const db = client.db('portfolio')
@@ -33,15 +36,26 @@ export async function getStaticProps() {
       .sort({ position: 1 })
       .toArray()
     if (entries) {
-      return { props: { entries: JSON.parse(JSON.stringify(entries)) } }
+      return {
+        props: {
+          entries: JSON.parse(JSON.stringify(entries)),
+          i18n
+        }
+      }
     } else
       return {
-        props: { entries: [] }
+        props: {
+          entries: [],
+          i18n
+        }
       }
   } catch (err) {
     console.log(err)
     return {
-      props: { entries: [] }
+      props: {
+        entries: [],
+        i18n
+      }
     }
   }
 }

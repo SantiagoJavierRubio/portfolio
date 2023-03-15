@@ -4,6 +4,7 @@ import MenuIcon from '@mui/icons-material/Menu'
 import WorkIcon from '@mui/icons-material/Work'
 import InfoIcon from '@mui/icons-material/Info'
 import ContactMailIcon from '@mui/icons-material/ContactMail'
+import { Trans } from '@lingui/macro'
 
 const Menu = ({ forceShow = false }) => {
   const [isOpen, setOpen] = useState(false)
@@ -66,7 +67,9 @@ const Menu = ({ forceShow = false }) => {
           className="my-2 flex cursor-pointer items-center justify-between gap-2"
           onClick={handleClick}
         >
-          <p>About</p>
+          <p>
+            <Trans>About</Trans>
+          </p>
           <button
             type="button"
             className="aspect-square rounded-full bg-stone-600 p-2 hover:bg-violet-600/50"
@@ -79,7 +82,9 @@ const Menu = ({ forceShow = false }) => {
           className="my-2 flex cursor-pointer items-center justify-between gap-2"
           onClick={handleClick}
         >
-          <p>Contact</p>
+          <p>
+            <Trans>Contact</Trans>
+          </p>
           <button
             type="button"
             className="aspect-square rounded-full bg-stone-600 p-2 hover:bg-violet-600/50"

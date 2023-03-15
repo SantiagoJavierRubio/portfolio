@@ -13,6 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: components/NavBar/Menu.jsx:71
+#: components/NavBar/NavBar.jsx:67
+msgid "About"
+msgstr "Sobre mi"
+
 #: pages/about.js:12
 msgid "About me"
 msgstr "Sobre mi"
@@ -41,6 +46,11 @@ msgstr "Competencias"
 msgid "Competent"
 msgstr "Competente"
 
+#: components/NavBar/Menu.jsx:86
+#: components/NavBar/NavBar.jsx:73
+msgid "Contact"
+msgstr "Contacto"
+
 #: pages/index.js:124
 msgid "Contact me"
 msgstr "Contáctame"
@@ -63,7 +73,7 @@ msgstr "Fullstack con NextJS, tRPC, SSR"
 
 #: pages/index.js:66
 msgid "Hi! My name is Santiago"
-msgstr "Hola! Soy Santiago"
+msgstr "¡Hola! Soy Santiago"
 
 #: pages/about.js:32
 msgid "I currently work as a part-time developer at OLA Estudio and also do freelance projects 💼"
@@ -133,6 +143,10 @@ msgstr "Estudios"
 #: pages/about.js:94
 msgid "Styling with CSS, Tailwind, Styled-components"
 msgstr "Estilos con CSS, Tailwind, Styled-components"
+
+#: pages/portfolio/index.js:15
+msgid "These are some of my projects:"
+msgstr "Algunos de mis proyectos:"
 
 #: pages/index.js:117
 msgid "Want to improve your business?"
