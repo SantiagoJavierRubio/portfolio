@@ -6,6 +6,9 @@ const nextConfig = {
   },
   images: {
     domains: ['github.com', 'res.cloudinary.com']
+  },
+  experimental: {
+    swcPlugins: [['@lingui/swc-plugin', {}]]
   }
 }
 

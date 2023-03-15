@@ -14,6 +14,9 @@ import Layout from '../components/Layout'
 import PortfolioCard from '../components/PortfolioCard'
 import TextScroller from '../components/TextScroller'
 
+import { loadCatalog } from '../lib/intl'
+import { Trans, t } from '@lingui/macro'
+
 const CODE_TEXT = `
 <h1>My tool belt</h1>
 <ul>
@@ -60,10 +63,10 @@ export default function Home({ featured }) {
       <section className="relative m-auto h-full w-full max-w-6xl text-stone-200 sm:p-4">
         <div className="flex h-auto w-full flex-col gap-4 sm:h-64">
           <h1 className="animate-appearLeft self-start text-5xl font-bold text-teal-500">
-            Hi! My name is Santiago
+            <Trans>Hi! My name is Santiago</Trans>
           </h1>
           <h2 className="animate-appearBottom text-3xl font-semibold italic text-purple-700 sm:self-start">
-            I&apos;m a Fullstack web developer
+            <Trans>I&apos;m a Fullstack web developer</Trans>
           </h2>
           <div className="relative hidden h-full w-full pr-4 sm:block">
             <TextScroller textArray={parsedCode} />
@@ -77,7 +80,7 @@ export default function Home({ featured }) {
             id="featured-title"
             className="p-2 text-left text-lg text-teal-500"
           >
-            Featured projects:
+            <Trans>Featured projects:</Trans>
           </h2>
           <div className="relative grid w-full gap-2 md:grid-cols-3 md:gap-4">
             {featured &&
@@ -94,7 +97,7 @@ export default function Home({ featured }) {
           <div className="h-0 w-full">
             <Link href="/portfolio">
               <button className="relative float-right m-5 mr-8 flex cursor-pointer items-center border-0 bg-transparent text-lg font-bold text-purple-500 after:absolute after:bottom-0 after:left-0 after:h-1 after:w-4/5 after:origin-bottom-right after:scale-x-0 after:rounded-sm after:bg-purple-500 after:transition-transform after:content-[''] hover:after:origin-bottom-left hover:after:scale-x-100 active:text-teal-400/80 active:after:bg-teal-400/80">
-                See more <ChevronRightIcon />
+                <Trans>See more</Trans> <ChevronRightIcon />
               </button>
             </Link>
           </div>
@@ -105,20 +108,20 @@ export default function Home({ featured }) {
             className="m-auto flex animate-backgroundSlowPan items-center justify-between bg-teal-500 bg-gradient-to-r from-teal-500 via-teal-200/70 to-teal-500 bg-200 bg-clip-text sm:w-4/5"
           >
             <h6 className="flex-1 text-center text-base text-transparent sm:font-bold md:text-lg">
-              Don&apos;t have a website yet?
+              <Trans>Don&apos;t have a website yet?</Trans>
             </h6>
             <h6 className="mb-28 flex-1 self-start text-center text-base text-transparent sm:font-bold md:text-lg">
-              Looking for an upgrade on your website?
+              <Trans>Looking for an upgrade on your website?</Trans>
             </h6>
             <h6 className="flex-1 text-center text-base text-transparent sm:font-bold md:text-lg">
-              Want to improve your business?
+              <Trans>Want to improve your business?</Trans>
             </h6>
           </div>
           <h6
             id="contact-title"
             className="mb-2 text-center text-xl font-bold text-purple-500 underline"
           >
-            Contact me
+            <Trans>Contact me</Trans>
           </h6>
           <ContactForm />
         </article>
@@ -194,13 +197,13 @@ const ContactForm = () => {
       className="m-auto flex w-full max-w-xl flex-col gap-4 px-6"
     >
       <label htmlFor="name" className="hidden">
-        Name
+        <Trans>Name</Trans>
       </label>
       <input
         type="text"
         id="name"
         className="w-full rounded-sm p-2 text-lg text-stone-900"
-        placeholder="Name"
+        placeholder={t({ message: 'Name' })}
         value={inputs.name}
         onChange={handleChange}
         required
@@ -218,13 +221,13 @@ const ContactForm = () => {
         onChange={handleChange}
       />
       <label htmlFor="message" className="hidden">
-        Message
+        <Trans>Message</Trans>
       </label>
       <textarea
         required
         value={inputs.message}
         id="message"
-        placeholder="Your message"
+        placeholder={t({ message: 'Your message' })}
         className="min-h-[6rem] w-full rounded-sm p-2 text-lg text-stone-900"
         onChange={handleChange}
       />
@@ -238,7 +241,7 @@ const ContactForm = () => {
           sendStatus !== SENDING_STATUS.NULL
         }
       >
-        {sendStatus === SENDING_STATUS.NULL && 'Send'}
+        {sendStatus === SENDING_STATUS.NULL && t({ message: 'Send' })}
         {sendStatus === SENDING_STATUS.SENDING && (
           <svg
             aria-hidden="true"
@@ -264,7 +267,8 @@ const ContactForm = () => {
   )
 }
 
-export async function getServerSideProps({ res }) {
+export async function getServerSideProps({ res, locale }) {
+  const i18n = await loadCatalog(locale)
   try {
     const client = await clientPromise
     const db = client.db('portfolio')
@@ -279,19 +283,22 @@ export async function getServerSideProps({ res }) {
       res.setHeader('Cache-Control', 'public, s-maxage=3600')
       return {
         props: {
-          featured: JSON.parse(JSON.stringify(entries))
+          featured: JSON.parse(JSON.stringify(entries)),
+          i18n
         }
       }
     } else
       return {
         props: {
-          featured: [null, null, null]
+          featured: [null, null, null],
+          i18n
         }
       }
   } catch (err) {
     return {
       props: {
-        featured: [null, null, null]
+        featured: [null, null, null],
+        i18n
       }
     }
   }

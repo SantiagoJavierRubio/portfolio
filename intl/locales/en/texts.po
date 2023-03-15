@@ -1,0 +1,151 @@
+msgid ""
+msgstr ""
+"POT-Creation-Date: 2023-03-15 10:23-0300\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: @lingui/cli\n"
+"Language: en\n"
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Plural-Forms: \n"
+
+#: pages/about.js:12
+msgid "About me"
+msgstr "About me"
+
+#: pages/about.js:123
+msgid "Apart from coding I'm a musician and a music teacher. I play the piano and clarinet 🎹"
+msgstr "Apart from coding I'm a musician and a music teacher. I play the piano and clarinet 🎹"
+
+#: pages/about.js:53
+msgid "Backend development - Agencia de Aprendizaje a lo largo de la Vida"
+msgstr "Backend development - Agencia de Aprendizaje a lo largo de la Vida"
+
+#: pages/about.js:47
+msgid "Backend development - Coderhouse"
+msgstr "Backend development - Coderhouse"
+
+#: pages/about.js:16
+msgid "Basic info"
+msgstr "Basic info"
+
+#: pages/about.js:77
+msgid "Competences"
+msgstr "Competences"
+
+#: pages/about.js:105
+msgid "Competent"
+msgstr "Competent"
+
+#: pages/index.js:124
+msgid "Contact me"
+msgstr "Contact me"
+
+#: pages/index.js:111
+msgid "Don't have a website yet?"
+msgstr "Don't have a website yet?"
+
+#: pages/index.js:83
+msgid "Featured projects:"
+msgstr "Featured projects:"
+
+#: pages/about.js:62
+msgid "Fullstack web development - Agencia de Aprendizaje a lo largo de la Vida"
+msgstr "Fullstack web development - Agencia de Aprendizaje a lo largo de la Vida"
+
+#: pages/about.js:91
+msgid "Fullstack with NextJS, tRPC, SSR"
+msgstr "Fullstack with NextJS, tRPC, SSR"
+
+#: pages/index.js:66
+msgid "Hi! My name is Santiago"
+msgstr "Hi! My name is Santiago"
+
+#: pages/about.js:32
+msgid "I currently work as a part-time developer at OLA Estudio and also do freelance projects 💼"
+msgstr "I currently work as a part-time developer at OLA Estudio and also do freelance projects 💼"
+
+#: pages/about.js:136
+msgid "I enjoy coding since I was a teenager, and I've always been passionate about it 🤓"
+msgstr "I enjoy coding since I was a teenager, and I've always been passionate about it 🤓"
+
+#: pages/about.js:130
+msgid "I like playing videogames. I also create some of my own using Godot engine as a hobby"
+msgstr "I like playing videogames. I also create some of my own using Godot engine as a hobby"
+
+#: pages/index.js:69
+msgid "I'm a Fullstack web developer"
+msgstr "I'm a Fullstack web developer"
+
+#: pages/about.js:120
+msgid "Interests & hobbies"
+msgstr "Interests & hobbies"
+
+#: pages/about.js:110
+#~ msgid "Java SpringBoot"
+#~ msgstr "Java SpringBoot"
+
+#: pages/index.js:114
+msgid "Looking for an upgrade on your website?"
+msgstr "Looking for an upgrade on your website?"
+
+#: pages/index.js:224
+msgid "Message"
+msgstr "Message"
+
+#: pages/about.js:19
+msgid "My name is Santiago, I'm a Fullstack <0>Javascript</0> & <1>Typescript</1> developer 🧑🏼‍💻"
+msgstr "My name is Santiago, I'm a Fullstack <0>Javascript</0> & <1>Typescript</1> developer 🧑🏼‍💻"
+
+#: pages/index.js:200
+#: pages/index.js:206
+msgid "Name"
+msgstr "Name"
+
+#: pages/about.js:85
+msgid "NodeJS backend frameworks (Express, Nest, Koa)"
+msgstr "NodeJS backend frameworks (Express, Nest, Koa)"
+
+#: pages/about.js:81
+msgid "Proficient"
+msgstr "Proficient"
+
+#: pages/about.js:88
+msgid "SPA with React, Redux, React Router, React Query"
+msgstr "SPA with React, Redux, React Router, React Query"
+
+#: pages/about.js:97
+msgid "SQL & NoSQL databases - MySQL, MongoDB, Firebase, Postgres"
+msgstr "SQL & NoSQL databases - MySQL, MongoDB, Firebase, Postgres"
+
+#: pages/index.js:100
+msgid "See more"
+msgstr "See more"
+
+#: pages/index.js:244
+msgid "Send"
+msgstr "Send"
+
+#: pages/about.js:43
+msgid "Studies"
+msgstr "Studies"
+
+#: pages/about.js:94
+msgid "Styling with CSS, Tailwind, Styled-components"
+msgstr "Styling with CSS, Tailwind, Styled-components"
+
+#: pages/index.js:117
+msgid "Want to improve your business?"
+msgstr "Want to improve your business?"
+
+#: pages/index.js:230
+msgid "Your message"
+msgstr "Your message"
+
+#: pages/about.js:27
+msgid "🌎 I'm from Argentina, currently based in Buenos Aires"
+msgstr "🌎 I'm from Argentina, currently based in Buenos Aires"
