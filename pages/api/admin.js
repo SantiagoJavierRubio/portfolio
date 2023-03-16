@@ -11,16 +11,18 @@ export default async function handler(req, res) {
     if (req.method === 'POST') {
       response = await create(db, req.body)
       await res.revalidate(`/portfolio/${response._id}`)
+      await res.revalidate(`/es/portfolio/${response._id}`)
       await res.revalidate(`/admin/${response._id}`)
     } else if (req.method === 'PUT') {
       response = await edit(db, req.query.id, req.body)
-      await res.revalidate(`/admin/${response._id}`)
       await res.revalidate(`/portfolio/${response._id}`)
+      await res.revalidate(`/es/portfolio/${response._id}`)
+      await res.revalidate(`/admin/${response._id}`)
     } else if (req.method === 'DELETE') {
       response = await remove(db, req.query.id)
     } else return res.status(405).send('Method not allowed')
-    console.log(response)
     await res.revalidate('/portfolio')
+    await res.revalidate('/es/portfolio')
     res.send(JSON.stringify(response))
   } catch (err) {
     console.log(err)
