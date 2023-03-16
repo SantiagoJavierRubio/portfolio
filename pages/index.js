@@ -275,16 +275,32 @@ export async function getServerSideProps({ res, locale }) {
     const entries = await db
       .collection('items')
       .find({})
-      .project({ thumbnail: 1, name: 1, summary: 1 })
+      .project({ thumbnail: 1, name: 1, summary: 1, summary_es: 1 })
       .sort({ position: 1 })
       .limit(3)
       .toArray()
     if (entries) {
       res.setHeader('Cache-Control', 'public, s-maxage=3600')
-      return {
-        props: {
-          featured: JSON.parse(JSON.stringify(entries)),
-          i18n
+      if (locale === 'en') {
+        return {
+          props: {
+            featured: JSON.parse(JSON.stringify(entries)),
+            i18n
+          }
+        }
+      } else {
+        return {
+          props: {
+            featured: JSON.parse(
+              JSON.stringify(
+                entries.map(entry => ({
+                  ...entry,
+                  summary: entry.summary_es || entry.summary
+                }))
+              )
+            ),
+            i18n
+          }
         }
       }
     } else

@@ -13,6 +13,7 @@ export default function EditPanel({ data }) {
   const [inputs, setInputs] = useState(data)
   const [languages, setLanguages] = useState(data.langs)
   const [deleteValidation, setDeleteValidation] = useState('')
+  const [locale, setLocale] = useState(router.locale || router.defaultLocale)
 
   if (status !== 'loading' && !session) router.push('/admin')
 
@@ -81,9 +82,33 @@ export default function EditPanel({ data }) {
         <Loader className="aspect-square h-12 fill-stone-500 text-center text-blue-400" />
       </div>
     )
+
+  const handleChangeLocale = e => {
+    setLocale(e.target.value)
+  }
   return (
     <Layout>
       <section className="m-auto h-full w-full max-w-6xl">
+        <div>
+          <label>English</label>
+          <input
+            id="set-locale-en"
+            type="radio"
+            name="locale"
+            value="en"
+            checked={locale === 'en'}
+            onChange={handleChangeLocale}
+          />
+          <label>Español</label>
+          <input
+            id="set-locale-es"
+            type="radio"
+            name="locale"
+            value="es"
+            checked={locale === 'es'}
+            onChange={handleChangeLocale}
+          />
+        </div>
         <form
           onSubmit={handleEditEntry}
           className="m-auto grid gap-4 p-2 text-teal-500"
@@ -109,11 +134,11 @@ export default function EditPanel({ data }) {
             </label>
             <input
               className="max-w-3xl grow rounded-md p-1 text-black"
-              name="summary"
+              name={locale === 'en' ? 'summary' : 'summary_es'}
               type="text"
               id="summary"
               maxLength="120"
-              value={inputs.summary}
+              value={locale === 'en' ? inputs.summary : inputs.summary_es || ''}
               onChange={handleTextChange}
               required
             />
@@ -166,9 +191,13 @@ export default function EditPanel({ data }) {
             </label>
             <textarea
               className="min-h-[6rem] max-w-3xl grow rounded-md p-1 text-black"
-              name="description"
               id="description"
-              value={inputs.description}
+              name={locale === 'en' ? 'description' : 'description_es'}
+              value={
+                locale === 'en'
+                  ? inputs.description
+                  : inputs.description_es || ''
+              }
               onChange={handleTextChange}
               maxLength={1000}
               required

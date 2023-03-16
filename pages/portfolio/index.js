@@ -24,22 +24,38 @@ export default function Portfolio({ entries }) {
   )
 }
 
-export async function getStaticProps(ctx) {
-  const i18n = await loadCatalog(ctx.locale)
+export async function getStaticProps({ locale }) {
+  const i18n = await loadCatalog(locale)
   try {
     const client = await clientPromise
     const db = client.db('portfolio')
     const entries = await db
       .collection('items')
       .find({})
-      .project({ thumbnail: 1, name: 1, summary: 1 })
+      .project({ thumbnail: 1, name: 1, summary: 1, summary_es: 1 })
       .sort({ position: 1 })
       .toArray()
     if (entries) {
-      return {
-        props: {
-          entries: JSON.parse(JSON.stringify(entries)),
-          i18n
+      if (locale === 'en') {
+        return {
+          props: {
+            entries: JSON.parse(JSON.stringify(entries)),
+            i18n
+          }
+        }
+      } else {
+        return {
+          props: {
+            entries: JSON.parse(
+              JSON.stringify(
+                entries.map(entry => ({
+                  ...entry,
+                  summary: entry.summary_es || entry.summary
+                }))
+              )
+            ),
+            i18n
+          }
         }
       }
     } else

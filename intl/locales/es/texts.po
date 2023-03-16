@@ -38,6 +38,10 @@ msgstr "Desarrollo Backend - Coderhouse"
 msgid "Basic info"
 msgstr "Información básica"
 
+#: pages/portfolio/[id].js:86
+msgid "Code"
+msgstr "Código"
+
 #: pages/about.js:77
 msgid "Competences"
 msgstr "Competencias"
@@ -89,7 +93,7 @@ msgstr "Me gusta jugar videojuegos. También disfruto de crear los propios utili
 
 #: pages/index.js:69
 msgid "I'm a Fullstack web developer"
-msgstr "Soy un desarrollador web FullStack"
+msgstr "Desarrollador web FullStack"
 
 #: pages/about.js:120
 msgid "Interests & hobbies"
@@ -120,6 +124,10 @@ msgstr "Frameworks Backend de NodeJS (Express, Nest, Koa)"
 msgid "Proficient"
 msgstr "Experto"
 
+#: pages/portfolio/[id].js:38
+msgid "Resources:"
+msgstr "Recursos:"
+
 #: pages/about.js:88
 msgid "SPA with React, Redux, React Router, React Query"
 msgstr "SPA utilizando React, Redux, React Router, React Query"
@@ -135,6 +143,10 @@ msgstr "Ver más"
 #: pages/index.js:244
 msgid "Send"
 msgstr "Enviar"
+
+#: pages/portfolio/[id].js:74
+msgid "Site"
+msgstr "Sitio"
 
 #: pages/about.js:43
 msgid "Studies"

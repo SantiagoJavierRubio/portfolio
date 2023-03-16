@@ -38,6 +38,10 @@ msgstr "Backend development - Coderhouse"
 msgid "Basic info"
 msgstr "Basic info"
 
+#: pages/portfolio/[id].js:86
+msgid "Code"
+msgstr "Code"
+
 #: pages/about.js:77
 msgid "Competences"
 msgstr "Competences"
@@ -124,6 +128,10 @@ msgstr "NodeJS backend frameworks (Express, Nest, Koa)"
 msgid "Proficient"
 msgstr "Proficient"
 
+#: pages/portfolio/[id].js:38
+msgid "Resources:"
+msgstr "Resources:"
+
 #: pages/about.js:88
 msgid "SPA with React, Redux, React Router, React Query"
 msgstr "SPA with React, Redux, React Router, React Query"
@@ -139,6 +147,10 @@ msgstr "See more"
 #: pages/index.js:244
 msgid "Send"
 msgstr "Send"
+
+#: pages/portfolio/[id].js:74
+msgid "Site"
+msgstr "Site"
 
 #: pages/about.js:43
 msgid "Studies"
