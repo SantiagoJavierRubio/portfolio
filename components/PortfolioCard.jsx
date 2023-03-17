@@ -2,14 +2,14 @@ import { Skeleton } from '@mui/material'
 import { twMerge } from 'tailwind-merge'
 import Link from 'next/link'
 import Image from 'next/image'
-
-// TODO: display default img placeholder if thumbnail doesnt load properly
+import { useState } from 'react'
 
 const PortfolioCard = ({ entry, ...props }) => {
   const twStyle = twMerge(
     'w-full overflow-hidden rounded-xl shrink-0 bg-teal-700/70',
     props.className
   )
+  const [src, setSrc] = useState(entry.thumbnail)
   return (
     <div className={twStyle}>
       {!entry && (
@@ -29,10 +29,13 @@ const PortfolioCard = ({ entry, ...props }) => {
             </h3>
             <div className="relative aspect-video w-full overflow-hidden">
               <Image
-                src={entry.thumbnail}
+                src={src}
                 fill
                 alt={`Screenshot for ${entry.name}`}
                 className="object-cover"
+                onError={() => {
+                  setSrc('/img/fallback.png')
+                }}
               />
             </div>
             <div className="absolute inset-x-0 -bottom-1 flex h-1/3 origin-bottom items-center justify-center bg-black/80 pb-1 transition-all duration-300 ease-in-out group-hover:scale-100 group-hover:opacity-100 sm:scale-y-0 sm:opacity-0">

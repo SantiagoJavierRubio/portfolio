@@ -19,8 +19,6 @@ const icons = {
   next: <i className="devicon-nextjs-original" />
 }
 
-// TODO: Better handle non listed
-
 export const getIcon = resource => {
   const r = resource.toLowerCase()
   switch (r) {
@@ -61,6 +59,12 @@ export const getIcon = resource => {
     case 'tailwind':
       return icons.tailwind
     default:
-      return <i />
+      return (
+        <img
+          src="/img/dev.svg"
+          alt="generic dev tech logo"
+          className="inline aspect-square w-4"
+        />
+      )
   }
 }

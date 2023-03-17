@@ -125,7 +125,7 @@ const AddProjectForm = ({ langs }) => {
     e.preventDefault()
     addNewLanguage()
   }
-  // TODO: check if reload works & handle errors
+  // TODO:  handle errors
   const handleSubmit = e => {
     e.preventDefault()
     axios

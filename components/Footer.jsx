@@ -16,7 +16,7 @@ const Footer = () => {
   }, [locale, router])
   return (
     <footer
-      className="relative mt-8 max-w-full bg-gradient-to-t from-black/80 to-transparent p-8 pt-16"
+      className="relative mt-8 max-w-full bg-gradient-to-t from-black/80 to-transparent p-8 py-16 sm:pb-8"
       id="footer"
     >
       <div className="m-auto flex items-center justify-center gap-6 text-center text-2xl font-bold text-stone-400">
@@ -40,8 +40,8 @@ const Footer = () => {
       <p className="text-center text-sm font-thin text-stone-200/70">
         &copy; Santiago Javier Rubio - 2022
       </p>
-      <div className="absolute bottom-4 right-4 flex flex-col items-center gap-1 text-cyan-600">
-        <LanguageIcon />
+      <div className="absolute bottom-8 right-1/2 flex translate-x-1/2 items-center gap-1 text-xs text-cyan-600 sm:bottom-4 sm:right-4 sm:translate-x-0 sm:flex-col sm:text-base">
+        <LanguageIcon className="text-base sm:block sm:text-lg" />
         <div className="flex items-center justify-center gap-1">
           <label
             className={`${
